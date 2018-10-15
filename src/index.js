@@ -1,26 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router-dom";
 
-const rootEl = document.getElementById('app-site');
+import "bootstrap/dist/css/bootstrap.css";
+import "assets/scss/paper-dashboard.scss";
+import "assets/demo/demo.css";
+import "assets/external/external.css";
 
-// Create a reusable render method that we can call more than once
-let render = () => {
-    // Dynamically import our main App component, and render it
-    const MainApp = require('./MainApp').default;
-    ReactDOM.render(
-        <MainApp/>,
-        rootEl
-    );
-};
+import indexRoutes from "routes/index.jsx";
 
-if (module.hot) {
-    module.hot.accept('./MainApp', () => {
-        const NextApp = require('./MainApp').default;
-        render(
-            <NextApp/>,
-            rootEl
-        );
-    });
-}
+const hist = createBrowserHistory();
 
-render();
+ReactDOM.render(
+  <Router history={hist}>
+    <Switch>
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />;
+      })}
+    </Switch>
+  </Router>,
+  document.getElementById("root")
+);
