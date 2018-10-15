@@ -4,11 +4,11 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardHeader,
   CardTitle,
-  Table,
   Row,
-  Col
+  Col,
+  Navbar,
+  Form, 
 } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
 
@@ -17,7 +17,17 @@ class Prescription extends React.Component {
   render() {
     return (
       <div className="content">
-      <Row>
+      
+      <Navbar expand="lg" color="dark">
+      <Form inline className="ml-auto">
+      <Button color="primary" round outline>
+      <i className="fa fa-plus"></i> Create
+      </Button>
+        
+       </Form>
+       </Navbar>
+
+      <Row className="helper">
 
       <Col xs="auto">
       <Card style={{width: '20rem'}}>
