@@ -15,7 +15,49 @@ import {
   ModalFooter
 } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+import ReactLoading from 'react-loading';
 
+const ListUser = (props) => (
+  <Query
+    query={gql`
+      {
+      allPrescriptions{
+        id
+        docname
+        details
+        createdAt
+      }
+    }
+    `}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return <div>
+      <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'red'} height={'60%'} width={'60%'} />
+      </div>;
+      if (error) return <p>Error :(</p>;
+
+      return data.allPrescriptions.map(({ id, docname, details, createdAt }) => (
+        
+          <Col key={id} xs="auto">
+          <Card style={{width: '20rem'}}>
+          <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
+          <CardBody>
+            <CardTitle>Doctor : {docname}</CardTitle>
+            <CardText><b>Problem :</b> {details}</CardText>
+            <CardText><b>Date :</b> {createdAt}</CardText>
+            <Button onClick={props.toggle} color="primary">View</Button>
+            <Button color="default">Update</Button>
+            <Button color="danger">Delete</Button>
+          </CardBody>
+          </Card>
+          </Col>
+        
+      ));
+    }}
+  </Query>
+  );
 
 class Prescription extends React.Component {
 
@@ -55,142 +97,18 @@ class Prescription extends React.Component {
   render() {
     return (
       <div className="content">
-      
       <Navbar expand="lg" color="dark">
       <Form inline className="ml-auto">
       <Button onClick={this.toggle} color="primary" round outline>
       <i className="fa fa-plus"></i> Create
       </Button>
-        
-       </Form>
-       </Navbar>
-
+      </Form>
+      </Navbar>
+      <div>
       <Row className="helper">
-
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      <Col xs="auto">
-      <Card style={{width: '20rem'}}>
-      <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
-      <CardBody>
-        <CardTitle>Doctor : Motasim Foad</CardTitle>
-        <CardText>Problems : Headache, Migrain, Diabetis</CardText>
-        <Button color="primary">View</Button>
-        <Button color="default">Update</Button>
-        <Button color="danger">Delete</Button>
-      </CardBody>
-      </Card>
-      </Col>
-      
-      
+      <ListUser toggle={this.toggle}/>
       </Row>
-      
+      </div>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Create Prescription</ModalHeader>
           <ModalBody>
