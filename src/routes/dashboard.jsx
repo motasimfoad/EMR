@@ -1,6 +1,7 @@
 import Dashboard from "views/Dashboard/Dashboard.jsx";
 import UserPage from "views/UserPage/UserPage.jsx";
 import Prescription from "views/Prescription/Prescription.jsx";
+import Create_Prescription from "components/Prescription_Create/Prescription_Create.jsx";
 
 var dashRoutes = [
   {
@@ -20,6 +21,12 @@ var dashRoutes = [
     name: "User Profile",
     icon: "nc-icon nc-single-02",
     component: UserPage
+  },
+  { hide: true,
+    path: "/cp",
+    name: "Create Prescription",
+    icon: "nc-icon nc-single-02",
+    component: Create_Prescription
   },
   {
     pro: true,
