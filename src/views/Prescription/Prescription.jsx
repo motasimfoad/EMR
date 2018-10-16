@@ -13,6 +13,8 @@ import {
   ModalHeader, 
   ModalBody, 
   ModalFooter,
+  FormGroup,
+  Input,
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
@@ -158,9 +160,12 @@ class Prescription extends React.Component {
       <div className="content">
       <Navbar expand="lg" color="dark">
       <Form inline className="ml-auto">
-      <Button onClick={this.toggle} color="primary" round outline>
-      <i className="fa fa-plus"></i> Create
-      </Button>
+       <FormGroup className={"no-border"}>
+        <Input type="text" placeholder="Search"/>
+      </FormGroup>
+      <Button color="neutral" icon round>
+       <i className="nc-icon nc-zoom-split"></i>
+     </Button>
       </Form>
       </Navbar>
       <div>
