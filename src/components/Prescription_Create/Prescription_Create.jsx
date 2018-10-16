@@ -5,17 +5,17 @@ import {
   CardImg,
   CardText,
   CardTitle,
+  CardHeader,
   Row,
   Col,
-  Navbar,
-  Form, 
   Modal, 
   ModalHeader, 
   ModalBody, 
   ModalFooter,
+  Table,
   FormGroup,
-  Input,
-  Table
+  Label,
+  Input
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
 import { Query } from "react-apollo";
@@ -158,23 +158,57 @@ class Prescription_Create extends React.Component {
   render() {
     return (
       <div className="content">
-      <Navbar expand="lg" color="dark">
-      <Form inline className="ml-auto">
-                            <FormGroup className={"no-border"}>
-                                <Input type="text" placeholder="Search"/>
-                            </FormGroup>
-                            <Button color="neutral" icon round>
-                                <i className="nc-icon nc-zoom-split"></i>
-                            </Button>
-                        </Form>
-      </Navbar>
-      <div>
-      <Row className="helper">
-
-      <ListUser toggle={this.toggle} state={this.state}/>
-
-      </Row>
-      </div>
+       <Row>
+          <Col md={12}>
+            <Card>
+              <CardHeader>
+                <h5 className="title">Fill Up The Form With Patient Information</h5>
+                
+              </CardHeader>
+              <CardBody>
+              <form>
+              <div className="form-row">
+          <FormGroup className="col-md-6">
+            <Label for="pname">Patient Name</Label>
+            <Input type="text"  id="pname" placeholder="Patient Name"/>
+          </FormGroup>
+          <FormGroup className="col-md-6">
+            <Label for="nid">NID / Passpost No / Birth Cirtificate No</Label>
+            <Input type="text"  id="nid" placeholder="NID / Passpost No / Birth Cirtificate No"/>
+          </FormGroup>
+        </div>
+        <div className="form-row">
+          <FormGroup className="col-md-6">
+            <Label for="inputEmail4">Doctors Name</Label>
+            <Input type="email"  id="inputEmail4" placeholder="Doctors Name"/>
+          </FormGroup>
+          <FormGroup className="col-md-6">
+            <Label for="phnno">Doctors ID</Label>
+            <Input type="text"  id="phnno" placeholder="Doctors ID"/>
+          </FormGroup>
+        </div>
+        <FormGroup>
+          <Label for="inputAddress">Chember Address</Label>
+          <Input type="text"  id="inputAddress" placeholder="Doctors Chember Address"/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="inputDetails">Details</Label>
+          <Input type="text"  id="inputDetails" placeholder="Issues regarding the patient"/>
+        </FormGroup>
+        <div className="form-row">
+          <FormGroup className="col-md-12">
+            <Label for="inputMed">Medicin</Label>
+            <Input type="text"  id="inputMed" placeholder="Suggested medicins for the patient"/>
+          </FormGroup>
+         
+        </div>
+        
+        <Button type="submit" color="success" size="lg"><i className="fa fa-save"/> &nbsp;Create</Button>
+      </form>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }

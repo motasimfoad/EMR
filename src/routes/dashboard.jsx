@@ -16,17 +16,17 @@ var dashRoutes = [
     icon: "nc-icon nc-paper",
     component: Prescription
   },
+  { 
+    path: "/cp",
+    name: "Create Prescription",
+    icon: "nc-icon nc-ruler-pencil",
+    component: Create_Prescription
+  },
   {
     path: "/user-page",
     name: "User Profile",
     icon: "nc-icon nc-single-02",
     component: UserPage
-  },
-  { hide: true,
-    path: "/cp",
-    name: "Create Prescription",
-    icon: "nc-icon nc-single-02",
-    component: Create_Prescription
   },
   {
     pro: true,
