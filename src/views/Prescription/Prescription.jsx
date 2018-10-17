@@ -48,20 +48,20 @@ const ListUser = (props) => (
 
       return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt }) => (
           
-          <Col key={id} xs="auto">
+          <Col key={id+1} xs="auto">
           <Card style={{width: '20rem'}}>
           <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
           <CardBody>
             <CardTitle>Doctor : {docname}</CardTitle>
             <CardText><b>Problem :</b> {details}</CardText>
             <CardText><b>Date :</b> {createdAt}</CardText>
-            <Button key={id} onClick={props.toggle} color="primary">View</Button>
+            <Button key={id+2} onClick={props.toggle} color="primary">View</Button>
             <Button color="default">Update</Button>
             <Button color="danger">Delete</Button>
-            <Modal key={id} isOpen={props.state.modal} toggle={props.toggle} >
+            <Modal key={id+3} isOpen={props.state.modal} toggle={props.toggle} >
             <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{docname}</i></b></p></ModalHeader>
             <ModalBody>
-            <Table key={id} bordered>
+            <Table key={id+4} bordered>
   
               <tbody>
               <tr>
