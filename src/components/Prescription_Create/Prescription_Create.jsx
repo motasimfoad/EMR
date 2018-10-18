@@ -54,14 +54,38 @@ class Prescription_Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       modal: false,
       nestedModal: false,
-      closeAll: false
+      closeAll: false,
+
+      pname: '',
+      nid: '',
+      docname: '',
+      drid: '',
+      inputAddress: '',
+      phnno: '',
+      inputDetails: '',
+      inputMed: ''
+
     };
 
     this.toggle = this.toggle.bind(this);
     this.toggleNested = this.toggleNested.bind(this);
     this.toggleAll = this.toggleAll.bind(this);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(evt) {
+    this.setState({ [evt.target.id]: evt.target.value });
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.pname);
+    
+    event.preventDefault();
   }
 
   toggle() {
@@ -90,24 +114,43 @@ class Prescription_Create extends React.Component {
       <div className="content">
       <Mutation
     mutation={gql`
-      mutation createPrescription{
+      mutation createPrescription(
+        $owner: String!,
+        $nid: String,
+        $docname: String!,
+        $docid: String!,
+        $chember: String,
+        $details: String!,
+        $med: String,
+        $phn: String
+      ){
           createPrescription(
-            docid: "14101054"
-            details: "Bismillah"
-            docname: "Likajhf"
-            owner: "niggahh"
+            owner: $owner,
+            nid  : $nid ,
+        docname  : $docname,
+         docid   : $docid,
+        chember  : $chember,
+        details  : $details,
+           med   : $med,
+          phn    : $phn
           ){
             id
           }
         }
       `}
+      variables = {{
+        owner: this.state.pname,
+        docname: this.state.docname,
+        docid: this.state.drid,
+        details: this.state.inputDetails
+      }}
   >
     {(CreatePrescription, {data, loading, error}) => {
       if (loading) return <p > Loading...</p>;
       console.log(loading);
       if (data) return <pre> {data.createPrescription.id} </pre>
       if (error) return <p>Error :(</p>;
-      return    <Row>
+      return  <Row>
       <Col md={12}>
         <Card>
           <CardHeader>
@@ -115,57 +158,57 @@ class Prescription_Create extends React.Component {
             
           </CardHeader>
           <CardBody>
-          <form>
+          <form onSubmit={this.handleSubmit}>
           <div className="form-row">
-      <FormGroup className="col-md-6">
-        <Label for="pname">Patient Name</Label>
-        <Input type="text"  id="pname" placeholder="Patient Name"/>
-      </FormGroup>
-      <FormGroup className="col-md-6">
-        <Label for="nid">NID / Passpost No / Birth Cirtificate No</Label>
-        <Input type="text"  id="nid" placeholder="NID / Passpost No / Birth Cirtificate No"/>
-      </FormGroup>
-    </div>
-    <div className="form-row">
-      <FormGroup className="col-md-6">
-        <Label for="inputEmail4">Doctors Name</Label>
-        <Input type="email"  id="inputEmail4" placeholder="Doctors Name"/>
-      </FormGroup>
-      <FormGroup className="col-md-6">
-        <Label for="drid">Doctors ID</Label>
-        <Input type="text"  id="drid" placeholder="Doctors ID"/>
-      </FormGroup>
-    </div>
-    <div className="form-row">
-      <FormGroup className="col-md-6">
-      <Label for="inputAddress">Chember Address</Label>
-      <Input type="text"  id="inputAddress" placeholder="Doctors Chember Address"/>
-      </FormGroup>
-      <FormGroup className="col-md-6">
-        <Label for="phnno">Patient contact no</Label>
-        <Input type="text"  id="phnno" placeholder="Patient contact no"/>
-      </FormGroup>
-    </div>
-    <FormGroup>
-      <Label for="inputDetails">Details</Label>
-      <Input type="text"  id="inputDetails" placeholder="Issues regarding the patient"/>
-    </FormGroup>
-    <div className="form-row">
-      <FormGroup className="col-md-12">
-        <Label for="inputMed">Medicin</Label>
-        <Input type="text"  id="inputMed" placeholder="Suggested medicins for the patient"/>
-      </FormGroup>
-     
-    </div>
-    
-    <Button type="submit" color="success" size="lg"><i className="fa fa-save"/> &nbsp;Create</Button>
-  </form>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>;
-      }}
-  </Mutation>
+            <FormGroup className="col-md-6">
+              <Label for="pname">Patient Name</Label>
+              <Input type="text"  id="pname" placeholder="Patient Name" onChange={this.handleChange}/>
+            </FormGroup>
+            <FormGroup className="col-md-6">
+              <Label for="nid">NID / Passpost No / Birth Cirtificate No</Label>
+              <Input type="text"  id="nid" placeholder="NID / Passpost No / Birth Cirtificate No" onChange={this.handleChange}/>
+            </FormGroup>
+          </div>
+          <div className="form-row">
+            <FormGroup className="col-md-6">
+              <Label for="docname">Doctors Name</Label>
+              <Input type="text"  id="docname" placeholder="Doctors Name" onChange={this.handleChange}/>
+            </FormGroup>
+            <FormGroup className="col-md-6">
+              <Label for="drid">Doctors ID</Label>
+              <Input type="text"  id="drid" placeholder="Doctors ID" onChange={this.handleChange}/>
+            </FormGroup>
+          </div>
+          <div className="form-row">
+            <FormGroup className="col-md-6">
+            <Label for="inputAddress">Chember Address</Label>
+            <Input type="text"  id="inputAddress" placeholder="Doctors Chember Address" onChange={this.handleChange}/>
+            </FormGroup>
+            <FormGroup className="col-md-6">
+              <Label for="phnno">Patient contact no</Label>
+              <Input type="text"  id="phnno" placeholder="Patient contact no" onChange={this.handleChange}/>
+            </FormGroup>
+          </div>
+          <FormGroup>
+            <Label for="inputDetails">Details</Label>
+            <Input type="text"  id="inputDetails" placeholder="Issues regarding the patient" onChange={this.handleChange}/>
+          </FormGroup>
+          <div className="form-row">
+            <FormGroup className="col-md-12">
+              <Label for="inputMed">Medicin</Label>
+              <Input type="text"  id="inputMed" placeholder="Suggested medicins for the patient" onChange={this.handleChange}/>
+            </FormGroup>
+          
+          </div>
+          
+          <Button type="submit" value="Submit" color="success" size="lg" onClick={()=>{CreatePrescription()}}><i className="fa fa-save"/> &nbsp;Create</Button>
+        </form>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>;
+            }}
+        </Mutation>
     
       
       </div>
