@@ -36,6 +36,7 @@ const ListUser = (props) => (
         chember
         med
         updatedAt
+        phn
       }
     }
     `}
@@ -46,7 +47,7 @@ const ListUser = (props) => (
       </div>;
       if (error) return <p>Error :(</p>;
 
-      return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt }) => (
+      return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt, phn }) => (
           
           <Col key={id+1} xs="auto">
           <Card style={{width: '20rem'}}>
@@ -59,7 +60,7 @@ const ListUser = (props) => (
             <Button color="default">Update</Button>
             <Button color="danger">Delete</Button>
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
-            <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{docname}</i></b></p></ModalHeader>
+            <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{owner}</i></b></p></ModalHeader>
             <ModalBody>
             <Table key={id+4} bordered>
   
@@ -81,8 +82,13 @@ const ListUser = (props) => (
               </tr>
               <tr>
               <td>
-                DocID :  &nbsp; {docid}
+              DocID :  &nbsp; {docid}
                </td>
+              </tr>
+              <tr>
+              <td>
+              Paitent contact no :  &nbsp; {phn}
+              </td>
               </tr>
               <tr>
               <td>
@@ -177,28 +183,6 @@ class Prescription extends React.Component {
 
       </Row>
       </div>
-
-      {/* <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Create Prescription</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <br />
-            <Button color="success" onClick={this.toggleNested}>Show Nested Modal</Button>
-            <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
-              <ModalHeader>Nested Modal title</ModalHeader>
-              <ModalBody>Stuff and things</ModalBody>
-              <ModalFooter>
-                <Button color="primary" onClick={this.toggleAll}>Done</Button>{' '}
-                <Button color="secondary" onClick={this.toggleAll}>All Done</Button>
-              </ModalFooter>
-            </Modal>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="success" onClick={this.toggleNested}>Create</Button>{' '}
-            <Button color="danger" onClick={this.toggleNested}>Discard</Button>
-          </ModalFooter>
-        </Modal> */}
-
       </div>
     );
   }
