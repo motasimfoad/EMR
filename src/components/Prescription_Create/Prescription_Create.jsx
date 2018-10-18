@@ -40,7 +40,7 @@ import ReactLoading from 'react-loading';
 //     {(CreatePrescription, {data, loading, error}) => {
 //       if (loading) return <p > Loading...</p>;
 //       console.log(loading);
-//       if (data) return <pre> {data.createPrescription.id} </pre>
+//       if (data) return  {data.createPrescription.id} 
 //       if (error) return <p>Error :(</p>;
 //       return <p onClick={()=>{CreatePrescription()}} >Success :)</p>;
 //       }}
@@ -82,10 +82,10 @@ class Prescription_Create extends React.Component {
     this.setState({ [evt.target.id]: evt.target.value });
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.pname);
+  handleSubmit() {
+    this.toggle();
     
-    event.preventDefault();
+   
   }
 
   toggle() {
@@ -108,12 +108,14 @@ class Prescription_Create extends React.Component {
     });
   }
 
+  
   render() {
 
     return (
       <div className="content">
+
       <Mutation
-    mutation={gql`
+      mutation={gql`
       mutation createPrescription(
         $owner: String!,
         $nid: String,
@@ -123,7 +125,7 @@ class Prescription_Create extends React.Component {
         $details: String!,
         $med: String,
         $phn: String
-      ){
+       ){
           createPrescription(
             owner: $owner,
             nid  : $nid ,
@@ -135,6 +137,10 @@ class Prescription_Create extends React.Component {
           phn    : $phn
           ){
             id
+            owner
+            docname
+            details
+            phn
           }
         }
       `}
@@ -153,7 +159,20 @@ class Prescription_Create extends React.Component {
       if (loading) return <div>
       <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'white'} height={'60%'} width={'60%'} />
       </div>;
-      if (data) return <pre> {data.createPrescription.id} </pre>;
+      if (data) return  <div className="successCreateNoify">
+        <Card className="successCreateNoifyHelper" style={{width: '30rem'}}>
+          <CardImg top src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png" alt="Card image cap" />
+          <CardTitle>Prescription Created Successfully!!</CardTitle>
+          <CardText>
+          Prescription ID : <b>{data.createPrescription.id}</b>< br />
+          Patient Name : <b>{data.createPrescription.owner}</b>< br />
+          Doctor Name : <b>{data.createPrescription.docname}</b>< br />
+          Health Issues : <b>{data.createPrescription.details}</b>< br />
+          Paitent Contact No : <b>{data.createPrescription.phn}</b>< br />
+          </CardText>
+          <Button href="/cp">Back</Button>
+        </Card>
+       </div> ;
       if (error) return <p>Error :(</p>;
       return  <Row>
       <Col md={12}>
@@ -214,8 +233,18 @@ class Prescription_Create extends React.Component {
           </Row>;
             }}
         </Mutation>
-    
-      
+
+     <Modal isOpen={this.state.modal} toggle={this.toggle} >
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+
       </div>
     );
   }
