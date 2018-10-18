@@ -12,7 +12,6 @@ import {
   ModalHeader, 
   ModalBody, 
   ModalFooter,
-  Table,
   FormGroup,
   Label,
   Input
@@ -22,43 +21,11 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import ReactLoading from 'react-loading';
 
-// const CreatePrescription = () => (
-//   <Mutation
-//     mutation={gql`
-//       mutation createPrescription{
-//           createPrescription(
-//             docid: "14101054"
-//             details: "Bismillah"
-//             docname: "Likajhf"
-//             owner: "niggahh"
-//           ){
-//             id
-//           }
-//         }
-//       `}
-//   >
-//     {(CreatePrescription, {data, loading, error}) => {
-//       if (loading) return <p > Loading...</p>;
-//       console.log(loading);
-//       if (data) return  {data.createPrescription.id} 
-//       if (error) return <p>Error :(</p>;
-//       return <p onClick={()=>{CreatePrescription()}} >Success :)</p>;
-//       }}
-//   </Mutation>
-// );
-
-
-
 class Prescription_Create extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-
-      modal: false,
-      nestedModal: false,
-      closeAll: false,
-
       pname: '',
       nid: '',
       docname: '',
@@ -67,52 +34,19 @@ class Prescription_Create extends React.Component {
       phnno: '',
       inputDetails: '',
       inputMed: ''
-
-    };
-
-    this.toggle = this.toggle.bind(this);
-    this.toggleNested = this.toggleNested.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+};
+      this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(evt) {
     this.setState({ [evt.target.id]: evt.target.value });
   }
 
-  handleSubmit() {
-    this.toggle();
-    
-   
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-
-  toggleNested() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: false
-    });
-  }
-
-  toggleAll() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: true
-    });
-  }
-
-  
   render() {
 
     return (
-      <div className="content">
+
+   <div className="content">
 
       <Mutation
       mutation={gql`
@@ -234,18 +168,7 @@ class Prescription_Create extends React.Component {
             }}
         </Mutation>
 
-     <Modal isOpen={this.state.modal} toggle={this.toggle} >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
-
-      </div>
+    </div>
     );
   }
 }

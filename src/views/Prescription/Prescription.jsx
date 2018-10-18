@@ -132,34 +132,15 @@ class Prescription extends React.Component {
     super(props);
     this.state = {
       modal: false,
-      nestedModal: false,
       viewPresciptionId: null,
-      closeAll: false
     };
-
     this.toggle = this.toggle.bind(this);
-    this.toggleNested = this.toggleNested.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
   }
 
   toggle(viewPresciptionId) {
     this.setState({
       modal: !this.state.modal,
       viewPresciptionId
-    });
-  }
-
-  toggleNested() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: false
-    });
-  }
-
-  toggleAll() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: true
     });
   }
 
