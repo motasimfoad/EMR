@@ -27,7 +27,10 @@ const CreatePrescription = () => (
     mutation={gql`
       mutation createPrescription{
           createPrescription(
-            docid: "14101054", details: "Bismillah", docname: "Likajhf", owner: "niggahh"
+            docid: "14101054"
+            details: "Bismillah"
+            docname: "Likajhf"
+            owner: "niggahh"
           ){
             id
           }
@@ -35,7 +38,7 @@ const CreatePrescription = () => (
       `}
   >
     {(data, loading, error) => {
-      if (loading) return <p>Loading...</p>;
+      if (loading) return <p onClick={()=>{CreatePrescription()}}> Loading...</p>;
       console.log(loading);
       if (data) return <pre> {data.createPrescription.id} </pre>
       if (error) return <p>Error :(</p>;
@@ -43,6 +46,23 @@ const CreatePrescription = () => (
       }}
   </Mutation>
 );
+
+// function cp(tabKey) {
+//   apolloClient.mutate({
+//     variables: { text: "hello" },
+//     mutation: gql`
+//       mutation AddComment($text: String!){
+//         addComment(text: $text) {
+//           id
+//           text
+//         }
+//       }
+//     `,
+    
+//   })
+//   .then(result => { console.log(result) })
+//   .catch(error => { console.log(error) });
+// }
 
 
 class Prescription_Create extends React.Component {

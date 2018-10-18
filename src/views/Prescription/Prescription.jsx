@@ -55,10 +55,10 @@ const ListUser = (props) => (
             <CardTitle>Doctor : {docname}</CardTitle>
             <CardText><b>Problem :</b> {details}</CardText>
             <CardText><b>Date :</b> {createdAt}</CardText>
-            <Button key={id+2} onClick={props.toggle} color="primary">View</Button>
+            <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
             <Button color="default">Update</Button>
             <Button color="danger">Delete</Button>
-            <Modal key={id+3} isOpen={props.state.modal} toggle={props.toggle} >
+            <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
             <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{docname}</i></b></p></ModalHeader>
             <ModalBody>
             <Table key={id+4} bordered>
@@ -127,6 +127,7 @@ class Prescription extends React.Component {
     this.state = {
       modal: false,
       nestedModal: false,
+      viewPresciptionId: null,
       closeAll: false
     };
 
@@ -135,9 +136,10 @@ class Prescription extends React.Component {
     this.toggleAll = this.toggleAll.bind(this);
   }
 
-  toggle() {
+  toggle(viewPresciptionId) {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      viewPresciptionId
     });
   }
 
