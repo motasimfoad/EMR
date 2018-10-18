@@ -20,7 +20,7 @@ import {
 import Button from "components/CustomButton/CustomButton.jsx";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-
+import ReactLoading from 'react-loading';
 
 // const CreatePrescription = () => (
 //   <Mutation
@@ -140,15 +140,20 @@ class Prescription_Create extends React.Component {
       `}
       variables = {{
         owner: this.state.pname,
+        nid: this.state.nid,
         docname: this.state.docname,
         docid: this.state.drid,
-        details: this.state.inputDetails
+        chember: this.state.inputAddress,
+        details: this.state.inputDetails,
+        med: this.state.inputMed,
+        phn: this.state.phnno,
       }}
   >
     {(CreatePrescription, {data, loading, error}) => {
-      if (loading) return <p > Loading...</p>;
-      console.log(loading);
-      if (data) return <pre> {data.createPrescription.id} </pre>
+      if (loading) return <div>
+      <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'white'} height={'60%'} width={'60%'} />
+      </div>;
+      if (data) return <pre> {data.createPrescription.id} </pre>;
       if (error) return <p>Error :(</p>;
       return  <Row>
       <Col md={12}>
