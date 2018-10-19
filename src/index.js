@@ -11,10 +11,15 @@ import "assets/external/external.css";
 import indexRoutes from "routes/index.jsx";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
 
 const hist = createBrowserHistory();
+const cache = new InMemoryCache();
 
 export const client = new ApolloClient({
+  link: new HttpLink(),
+  cache,
   uri: "https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73"
 });
 

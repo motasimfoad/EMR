@@ -154,13 +154,34 @@ class Prescription extends React.Component {
           mutation deletePrescription($id: ID!) {
             deletePrescription(id: $id) {
               owner
+              id
             }
           }
       `,
       variables: {
           id : viewPresciptionId
+      },
+      refetchQueries: [{
+        query : gql`
+      {
+      allPrescriptions{
+        id
+        docname
+        docid
+        details
+        createdAt
+        owner
+        chember
+        med
+        updatedAt
+        phn
       }
+    }
+    `}] 
   });
+
+  
+
   console.log(obj.data);
   
 }
