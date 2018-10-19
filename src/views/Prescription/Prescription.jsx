@@ -21,6 +21,7 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import ReactLoading from 'react-loading';
+import {client} from "../../index";
 
 const ListUser = (props) => (
   <Query
@@ -50,6 +51,7 @@ const ListUser = (props) => (
       return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt, phn }) => (
           
           <Col key={id+1} xs="auto">
+          
           <Card style={{width: '20rem'}}>
           <CardImg top src="http://icons-for-free.com/free-icons/png/512/1290990.png" alt="..."/>
           <CardBody>
@@ -59,6 +61,7 @@ const ListUser = (props) => (
             <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
             <Button color="default">Update</Button>
             <Button color="danger" onClick={() => {props.delete(id)}}>Delete</Button>
+            
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
             <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{owner}</i></b></p></ModalHeader>
             <ModalBody>
@@ -135,7 +138,7 @@ class Prescription extends React.Component {
       viewPresciptionId: null,
     };
     this.toggle = this.toggle.bind(this);
-    //this.delete = this.delete.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   toggle(viewPresciptionId) {
@@ -145,12 +148,22 @@ class Prescription extends React.Component {
     });
   }
 
-//   delete(viewPresciptionId){
-//     this.setState({
-//       viewPresciptionId
-//     });
-//   this.Delete(viewPresciptionId);
-// }
+  async delete(viewPresciptionId){
+    const obj = await client.mutate({
+      mutation: gql`
+          mutation deletePrescription($id: ID!) {
+            deletePrescription(id: $id) {
+              owner
+            }
+          }
+      `,
+      variables: {
+          id : viewPresciptionId
+      }
+  });
+  console.log(obj.data);
+  
+}
 
 //   Delete = () => (
 //   <Mutation

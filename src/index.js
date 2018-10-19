@@ -13,7 +13,8 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 const hist = createBrowserHistory();
-const client = new ApolloClient({
+
+export const client = new ApolloClient({
   uri: "https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73"
 });
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       {indexRoutes.map((prop, key) => {
         return <Route path={prop.path} key={key} component={prop.component} />;
       })}
+      
     </Switch>
   </Router>
   </ApolloProvider>,
