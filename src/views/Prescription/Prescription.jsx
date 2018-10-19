@@ -18,7 +18,7 @@ import {
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
-import { Query } from "react-apollo";
+import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import ReactLoading from 'react-loading';
 
@@ -58,7 +58,7 @@ const ListUser = (props) => (
             <CardText><b>Date :</b> {createdAt}</CardText>
             <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
             <Button color="default">Update</Button>
-            <Button color="danger">Delete</Button>
+            <Button color="danger" onClick={() => {props.delete(id)}}>Delete</Button>
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
             <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{owner}</i></b></p></ModalHeader>
             <ModalBody>
@@ -135,6 +135,7 @@ class Prescription extends React.Component {
       viewPresciptionId: null,
     };
     this.toggle = this.toggle.bind(this);
+    //this.delete = this.delete.bind(this);
   }
 
   toggle(viewPresciptionId) {
@@ -143,6 +144,53 @@ class Prescription extends React.Component {
       viewPresciptionId
     });
   }
+
+//   delete(viewPresciptionId){
+//     this.setState({
+//       viewPresciptionId
+//     });
+//   this.Delete(viewPresciptionId);
+// }
+
+//   Delete = () => (
+//   <Mutation
+//   mutation={gql`
+//   mutation deletePrescription(
+//     $id: String!,
+//    ){
+//       deletePrescription(
+//         id: $id,
+//       ){
+//         owner
+//       }
+//     }
+//   `}
+//   variables = {{
+//     id: this.state.viewPresciptionId,
+//   }}
+// >
+// {({data, loading, error}) => {
+//   if (loading) return <div>
+//   <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'white'} height={'60%'} width={'60%'} />
+//   </div>;
+//   if (data) return  <div className="successCreateNoify">
+//     <Card className="successCreateNoifyHelper" style={{width: '30rem'}}>
+//       <CardImg top src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png" alt="Card image cap" />
+//       <CardTitle>Prescription Created Successfully!!</CardTitle>
+//       <CardText>
+//       Prescription ID : <b>{data.deletePrescription.owner}</b>< br />
+//       </CardText>
+//       <Button href="/cp">Back</Button>
+//     </Card>
+//    </div> ;
+//   if (error) return <p>Error :(</p>;
+//   return  <div>
+//     Alhamdulillah
+//   </div>;
+//         }}
+//     </Mutation>
+
+// );
 
   render() {
     return (
@@ -160,7 +208,7 @@ class Prescription extends React.Component {
       <div>
       <Row className="helper">
 
-      <ListUser toggle={this.toggle} state={this.state}/>
+      <ListUser toggle={this.toggle} state={this.state} delete={this.delete}/>
 
       </Row>
       </div>

@@ -8,10 +8,6 @@ import {
   CardHeader,
   Row,
   Col,
-  Modal, 
-  ModalHeader, 
-  ModalBody, 
-  ModalFooter,
   FormGroup,
   Label,
   Input
