@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
-    "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
-    "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
-  },
-  {
     "revision": "6836b93bf1af0b571928d98458a68445",
     "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
+  },
+  {
+    "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
+    "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
     "revision": "c36d06a66ac367beff29",
