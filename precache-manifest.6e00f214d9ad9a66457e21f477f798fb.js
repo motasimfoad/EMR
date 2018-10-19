@@ -8,8 +8,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/css/main.3f57b27e.chunk.css"
   },
   {
-    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
-    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
+    "revision": "48ac036da7c7923266266f63746fc5f1",
+    "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
   },
   {
     "revision": "c36d06a66ac367beff29",
@@ -44,16 +44,16 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
+    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
+    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
     "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
     "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
-    "revision": "48ac036da7c7923266266f63746fc5f1",
-    "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
   },
   {
     "revision": "c36d06a66ac367beff29",
