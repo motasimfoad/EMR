@@ -22,6 +22,8 @@ import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import ReactLoading from 'react-loading';
 import {client} from "../../index";
+import { confirmAlert } from "react-confirm-alert"; 
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const ListUser = (props) => (
   <Query
@@ -60,7 +62,7 @@ const ListUser = (props) => (
             <CardText><b>Date :</b> {createdAt}</CardText>
             <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
             <Button color="default">Update</Button>
-            <Button color="danger" onClick={() => {props.delete(id)}}>Delete</Button>
+            <Button color="danger" onClick={() => {props.preDelete(id)}}>Delete</Button>
             
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
             <ModalHeader toggle={props.toggle}><p>Prescription of <b><i>{owner}</i></b></p></ModalHeader>
@@ -139,6 +141,7 @@ class Prescription extends React.Component {
     };
     this.toggle = this.toggle.bind(this);
     this.delete = this.delete.bind(this);
+    this.preDelete = this.preDelete.bind(this);
   }
 
   toggle(viewPresciptionId) {
@@ -148,7 +151,26 @@ class Prescription extends React.Component {
     });
   }
 
+  preDelete(viewPresciptionId) {
+    confirmAlert({
+      title: 'Delete?',
+      
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.delete(viewPresciptionId)
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Delete action cancelled')
+        }
+      ]
+    })
+  }
+  
+
   async delete(viewPresciptionId){
+    alert("Deleted")
     const obj = await client.mutate({
       mutation: gql`
           mutation deletePrescription($id: ID!) {
@@ -158,6 +180,7 @@ class Prescription extends React.Component {
             }
           }
       `,
+      
       variables: {
           id : viewPresciptionId
       },
@@ -181,8 +204,6 @@ class Prescription extends React.Component {
   });
 
   
-
-  console.log(obj.data);
   
 }
 
@@ -242,7 +263,7 @@ class Prescription extends React.Component {
       <div>
       <Row className="helper">
 
-      <ListUser toggle={this.toggle} state={this.state} delete={this.delete}/>
+      <ListUser toggle={this.toggle} state={this.state} delete={this.delete} preDelete={this.preDelete}/>
 
       </Row>
       </div>
