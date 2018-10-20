@@ -6,6 +6,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
+import Prescription_Update from "../../components/Prescription_Update/Prescription_Update";
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
@@ -62,7 +63,7 @@ class Dashboard extends React.Component {
               if (prop.redirect) {
                 return <Redirect from={prop.path} to={prop.pathTo} key={key} />;
               }
-              return (
+             return (
                 <Route path={prop.path} component={prop.component} key={key} />
               );
             })}

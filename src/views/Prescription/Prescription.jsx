@@ -18,7 +18,7 @@ import {
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
-import { Query, Mutation } from "react-apollo";
+import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import ReactLoading from 'react-loading';
 import {client} from "../../index";
@@ -206,46 +206,6 @@ class Prescription extends React.Component {
   
   
 }
-
-//   Delete = () => (
-//   <Mutation
-//   mutation={gql`
-//   mutation deletePrescription(
-//     $id: String!,
-//    ){
-//       deletePrescription(
-//         id: $id,
-//       ){
-//         owner
-//       }
-//     }
-//   `}
-//   variables = {{
-//     id: this.state.viewPresciptionId,
-//   }}
-// >
-// {({data, loading, error}) => {
-//   if (loading) return <div>
-//   <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'white'} height={'60%'} width={'60%'} />
-//   </div>;
-//   if (data) return  <div className="successCreateNoify">
-//     <Card className="successCreateNoifyHelper" style={{width: '30rem'}}>
-//       <CardImg top src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png" alt="Card image cap" />
-//       <CardTitle>Prescription Created Successfully!!</CardTitle>
-//       <CardText>
-//       Prescription ID : <b>{data.deletePrescription.owner}</b>< br />
-//       </CardText>
-//       <Button href="/cp">Back</Button>
-//     </Card>
-//    </div> ;
-//   if (error) return <p>Error :(</p>;
-//   return  <div>
-//     Alhamdulillah
-//   </div>;
-//         }}
-//     </Mutation>
-
-// );
 
   render() {
     return (
