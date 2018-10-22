@@ -22,14 +22,15 @@ class Prescription_Update extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pname: '',
-      nid: '',
-      docname: '',
-      drid: '',
-      inputAddress: '',
-      phnno: '',
-      inputDetails: '',
-      inputMed: ''
+      pname: props.history.location.state.some[4],
+      nid: props.history.location.state.some[10],
+      docname: props.history.location.state.some[1],
+      drid: props.history.location.state.some[5],
+      inputAddress: props.history.location.state.some[6],
+      phnno: props.history.location.state.some[9],
+      inputDetails: props.history.location.state.some[2],
+      inputMed: props.history.location.state.some[7],
+      viewPresciption :  props.history.location.state.some[0],
 };
       this.handleChange = this.handleChange.bind(this);
   }
@@ -39,14 +40,14 @@ class Prescription_Update extends React.Component {
   }
 
   render() {
-
-    return (
-
+   return (
+      
    <div className="content">
 
       <Mutation
       mutation={gql`
-      mutation createPrescription(
+      mutation updatePrescription(
+        $id : ID!,
         $owner: String!,
         $nid: String,
         $docname: String!,
@@ -56,7 +57,8 @@ class Prescription_Update extends React.Component {
         $med: String,
         $phn: String
        ){
-          createPrescription(
+          updatePrescription(
+              id : $id,
             owner: $owner,
             nid  : $nid ,
         docname  : $docname,
@@ -75,6 +77,7 @@ class Prescription_Update extends React.Component {
         }
       `}
       variables = {{
+        id : this.state.viewPresciption,
         owner: this.state.pname,
         nid: this.state.nid,
         docname: this.state.docname,
@@ -85,25 +88,27 @@ class Prescription_Update extends React.Component {
         phn: this.state.phnno,
       }}
   >
-    {(CreatePrescription, {data, loading, error}) => {
+    {(updatePrescription, {data, loading, error}) => {
       if (loading) return <div>
       <ReactLoading className="loadingScreenAnimation" type={'spin'} color={'white'} height={'60%'} width={'60%'} />
       </div>;
       if (data) return  <div className="successCreateNoify">
         <Card className="successCreateNoifyHelper" style={{width: '30rem'}}>
           <CardImg top src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png" alt="Card image cap" />
-          <CardTitle>Prescription Created Successfully!!</CardTitle>
+          <CardTitle>Prescription Updated Successfully!!</CardTitle>
           <CardText>
-          Prescription ID : <b>{data.createPrescription.id}</b>< br />
-          Patient Name : <b>{data.createPrescription.owner}</b>< br />
-          Doctor Name : <b>{data.createPrescription.docname}</b>< br />
-          Health Issues : <b>{data.createPrescription.details}</b>< br />
-          Paitent Contact No : <b>{data.createPrescription.phn}</b>< br />
+          Prescription ID : <b>{data.updatePrescription.id}</b>< br />
+          Patient Name : <b>{data.updatePrescription.owner}</b>< br />
+          Doctor Name : <b>{data.updatePrescription.docname}</b>< br />
+          Health Issues : <b>{data.updatePrescription.details}</b>< br />
+          Paitent Contact No : <b>{data.updatePrescription.phn}</b>< br />
           </CardText>
-          <Button href="/cp">Back</Button>
+          <Button href="/prescription">Back</Button>
         </Card>
        </div> ;
       if (error) return <p>Error :(</p>;
+       
+        
       return  <Row>
       <Col md={12}>
         <Card>
@@ -116,46 +121,46 @@ class Prescription_Update extends React.Component {
           <div className="form-row">
             <FormGroup className="col-md-6">
               <Label for="pname">Patient Name</Label>
-              <Input type="text"  id="pname" placeholder="Patient Name" onChange={this.handleChange}/>
+              <Input type="text"  id="pname" placeholder={this.state.pname} onChange={this.handleChange}/>
             </FormGroup>
             <FormGroup className="col-md-6">
               <Label for="nid">NID / Passpost No / Birth Cirtificate No</Label>
-              <Input type="text"  id="nid" placeholder="NID / Passpost No / Birth Cirtificate No" onChange={this.handleChange}/>
+              <Input type="text"  id="nid" placeholder={this.state.nid} onChange={this.handleChange}/>
             </FormGroup>
           </div>
           <div className="form-row">
             <FormGroup className="col-md-6">
               <Label for="docname">Doctors Name</Label>
-              <Input type="text"  id="docname" placeholder="Doctors Name" onChange={this.handleChange}/>
+              <Input type="text"  id="docname" placeholder={this.state.docname} onChange={this.handleChange}/>
             </FormGroup>
             <FormGroup className="col-md-6">
               <Label for="drid">Doctors ID</Label>
-              <Input type="text"  id="drid" placeholder="Doctors ID" onChange={this.handleChange}/>
+              <Input type="text"  id="drid" placeholder={this.state.drid} onChange={this.handleChange}/>
             </FormGroup>
           </div>
           <div className="form-row">
             <FormGroup className="col-md-6">
             <Label for="inputAddress">Chember Address</Label>
-            <Input type="text"  id="inputAddress" placeholder="Doctors Chember Address" onChange={this.handleChange}/>
+            <Input type="text"  id="inputAddress" placeholder={this.state.inputAddress} onChange={this.handleChange}/>
             </FormGroup>
             <FormGroup className="col-md-6">
               <Label for="phnno">Patient contact no</Label>
-              <Input type="text"  id="phnno" placeholder="Patient contact no" onChange={this.handleChange}/>
+              <Input type="text"  id="phnno" placeholder={this.state.phnno} onChange={this.handleChange}/>
             </FormGroup>
           </div>
           <FormGroup>
             <Label for="inputDetails">Details</Label>
-            <Input type="text"  id="inputDetails" placeholder="Issues regarding the patient" onChange={this.handleChange}/>
+            <Input type="text"  id="inputDetails" placeholder={this.state.inputDetails} onChange={this.handleChange}/>
           </FormGroup>
           <div className="form-row">
             <FormGroup className="col-md-12">
               <Label for="inputMed">Medicin</Label>
-              <Input type="text"  id="inputMed" placeholder="Suggested medicins for the patient" onChange={this.handleChange}/>
+              <Input type="text"  id="inputMed" placeholder={this.state.inputMed} onChange={this.handleChange}/>
             </FormGroup>
           
           </div>
           
-          <Button type="submit" value="Submit" color="success" size="lg" onClick={()=>{CreatePrescription()}}><i className="fa fa-save"/> &nbsp;Update</Button>
+          <Button type="submit" value="Submit" color="success" size="lg" onClick={()=>{updatePrescription()}}><i className="fa fa-save"/> &nbsp;Update</Button>
         </form>
                 </CardBody>
               </Card>

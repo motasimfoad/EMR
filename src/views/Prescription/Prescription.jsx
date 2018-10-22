@@ -40,6 +40,7 @@ const ListUser = (props) => (
         med
         updatedAt
         phn
+        nid
       }
     }
     `}
@@ -50,7 +51,7 @@ const ListUser = (props) => (
       </div>;
       if (error) return <p>Error :(</p>;
 
-      return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt, phn }) => (
+      return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid }) => (
           
           <Col key={id+1} xs="auto">
           
@@ -61,7 +62,7 @@ const ListUser = (props) => (
             <CardText><b>Problem :</b> {details}</CardText>
             <CardText><b>Date :</b> {createdAt}</CardText>
             <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
-            <Button color="default">Update</Button>
+            <Button color="default" onClick={() => {props.up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid)}}>Update</Button>
             <Button color="danger" onClick={() => {props.preDelete(id)}}>Delete</Button>
             
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
@@ -140,6 +141,7 @@ class Prescription extends React.Component {
       viewPresciptionId: null,
     };
     this.toggle = this.toggle.bind(this);
+    this.up = this.up.bind(this);
     this.delete = this.delete.bind(this);
     this.preDelete = this.preDelete.bind(this);
   }
@@ -149,6 +151,16 @@ class Prescription extends React.Component {
       modal: !this.state.modal,
       viewPresciptionId
     });
+  }
+
+  up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn , nid) {
+    // this.setState({
+    //   data
+    // });
+    this.props.history.push({
+      pathname: '/up',
+      state: { some: [id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid] }
+    })
   }
 
   preDelete(viewPresciptionId) {
@@ -170,7 +182,7 @@ class Prescription extends React.Component {
   
 
   async delete(viewPresciptionId){
-    alert("Deleted")
+    alert("Successfully Deleted")
     const obj = await client.mutate({
       mutation: gql`
           mutation deletePrescription($id: ID!) {
@@ -223,7 +235,7 @@ class Prescription extends React.Component {
       <div>
       <Row className="helper">
 
-      <ListUser toggle={this.toggle} state={this.state} delete={this.delete} preDelete={this.preDelete}/>
+      <ListUser toggle={this.toggle} state={this.state} delete={this.delete} preDelete={this.preDelete} up={this.up}/>
 
       </Row>
       </div>
