@@ -10,7 +10,8 @@ import {
   Col,
   FormGroup,
   Label,
-  Input
+  Input,
+  Alert
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
 import gql from "graphql-tag";
@@ -113,9 +114,9 @@ class Prescription_Update extends React.Component {
       <Col md={12}>
         <Card>
           <CardHeader>
-            <h5 className="title">Fill Up The Form With Patient Information</h5>
-            
-          </CardHeader>
+            <h5 className="title">Update Prescription</h5>
+            <Alert color="warning"><b>Input fields are already filled with existing prescription data</b> </Alert>
+         </CardHeader>
           <CardBody>
           <form onSubmit={this.handleSubmit}>
           <div className="form-row">
