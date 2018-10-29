@@ -1,269 +1,144 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardTitle, CardFooter, Row, Col } from "reactstrap";
+import { 
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Button,
+  TabContent, 
+  TabPane, 
+  Nav, 
+  NavItem, 
+  NavLink, 
 
-import CardAuthor from "components/CardElements/CardAuthor.jsx";
-import FormInputs from "components/FormInputs/FormInputs.jsx";
-import Button from "components/CustomButton/CustomButton.jsx";
-
-import damirBosnjak from "assets/img/damir-bosnjak.jpg";
-import mike from "assets/img/mike.jpg";
-import ayoOgunseinde2 from "assets/img/faces/ayo-ogunseinde-2.jpg";
-import joeGardner2 from "assets/img/faces/joe-gardner-2.jpg";
-import clemOnojeghuo2 from "assets/img/faces/clem-onojeghuo-2.jpg";
-
+} from "reactstrap";
+import classnames from 'classnames';
 class Auth extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      activeTab: '1'
+    };
+
+    this.toggle = this.toggle.bind(this);
+    
+  }
+
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
+
   render() {
     return (
-      <div className="content">
-        <Row>
-          <Col md={4} xs={12}>
-            <Card className="card-user">
-              <div className="image">
-                <img src={damirBosnjak} alt="..." />
-              </div>
-              <CardBody>
-                <CardAuthor
-                  avatar={mike}
-                  avatarAlt="..."
-                  title="Chet Faker"
-                  description="@chetfaker"
-                />
-                <p className="description text-center">
-                  "I like the way you work it{" "}<br/>
-                    No diggity <br/>
-                    I wanna bag it up"
-                </p>
-              </CardBody>
-              <CardFooter>
-                <hr />
-                <div className="button-container">
-                  <Row>
-                    <Col xs={6} sm={6} md={6} lg={3} className="ml-auto">
-                      <h5>
-                        12
-                        <br/>
-                        <small>Files</small>
-                      </h5>
-                    </Col>
-                    <Col xs={6} sm={6} md={6} lg={4} className="mr-auto ml-auto">
-                      <h5>
-                        2GB
-                        <br/>
-                        <small>Used</small>
-                      </h5>
-                    </Col>
-                    <Col lg={3} className="mr-auto">
-                      <h5>
-                        24,6$
-                        <br/>
-                        <small>Spent</small>
-                      </h5>
-                    </Col>
-                  </Row>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle tag="h4">Team Members</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <ul className="list-unstyled team-members">
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img src={ayoOgunseinde2} alt="ayoOgunseinde2" className="img-circle img-no-padding img-responsive" />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        DJ Khaled
-                        <br />
-                        <span className="text-muted">
-                          <small>
-                          Offline
-                        </small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope"></i>
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img src={joeGardner2} alt="joeGardner2" className="img-circle img-no-padding img-responsive" />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        Creative Tim
-                        <br />
-                        <span className="text-success">
-                          <small>
-                          Available
-                        </small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope"></i>
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img src={clemOnojeghuo2} alt="clemOnojeghuo2" className="img-circle img-no-padding img-responsive" />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        Flume
-                        <br />
-                        <span className="text-danger">
-                          <small>
-                          Busy
-                        </small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope"></i>
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
-                </ul>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md={8} xs={12}>
-            <Card className="card-user">
-              <CardHeader>
-                <CardTitle>Edit Profile</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <form>
-                  <FormInputs
-                    ncols={["col-md-5 pr-1", "col-md-3 px-1", "col-md-4 pl-1"]}
-                    proprieties={[
-                      {
-                        label: "Company (disabled)",
-                        inputProps: {
-                          type: "text",
-                          disabled: true,
-                          defaultValue: "Creative Code Inc."
-                        }
-                      },
-                      {
-                        label: "Username",
-                        inputProps: {
-                          type: "text",
-                          defaultValue: "chetfaker"
-                        }
-                      },
-                      {
-                        label: "Email address",
-                        inputProps: {
-                          type: "email",
-                          placeholder: "Email"
-                        }
-                      }
-                    ]}
-                  />
-                  <FormInputs
-                    ncols={["col-md-6 pr-1", "col-md-6 pl-1"]}
-                    proprieties={[
-                      {
-                        label: "First Name",
-                        inputProps: {
-                          type: "text",
-                          placeholder: "First Name",
-                          defaultValue: "Chet"
-                        }
-                      },
-                      {
-                        label: "Last Name",
-                        inputProps: {
-                          type: "text",
-                          placeholder: "Last Name",
-                          defaultValue: "Faker"
-                        }
-                      }
-                    ]}
-                  />
-                  <FormInputs
-                    ncols={["col-md-12"]}
-                    proprieties={[
-                      {
-                        label: "Address",
-                        inputProps: {
-                          type: "text",
-                          placeholder: "Home Address",
-                          defaultValue:
-                            "Melbourne, Australia"
-                        }
-                      }
-                    ]}
-                  />
-                  <FormInputs
-                    ncols={["col-md-4 pr-1", "col-md-4 px-1", "col-md-4 pl-1"]}
-                    proprieties={[
-                      {
-                        label: "City",
-                        inputProps: {
-                          type: "text",
-                          defaultValue: "Melbourne",
-                          placeholder: "City"
-                        }
-                      },
-                      {
-                        label: "Country",
-                        inputProps: {
-                          type: "text",
-                          defaultValue: "Australia",
-                          placeholder: "Country"
-                        }
-                      },
-                      {
-                        label: "Postal Code",
-                        inputProps: {
-                          type: "number",
-                          placeholder: "ZIP Code"
-                        }
-                      }
-                    ]}
-                  />
-                  <FormInputs
-                    ncols={["col-md-12"]}
-                    proprieties={[
-                      {
-                        label: "About Me",
-                        inputProps: {
-                          type: "textarea",
-                          defaultValue:
-                            "Oh so, your weak rhyme You doubt I'll bother, reading into it",
-                          placeholder: "Here can be your description"
-                        }
-                      }
-                    ]}
-                  />
-                  <Row>
-                    <div className="update ml-auto mr-auto">
-                      <Button color="primary" round>Update Profile</Button>
-                    </div>
-                  </Row>
-                </form>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+      <div className="authMain">
+      <div className ="authFormHelper">
+      <div className="authForm">
+
+      <div className="authFormImgHelper">
+      <img className="authFormImg" src ="https://png2.kisspng.com/20180329/cre/kisspng-logo-swarm-computer-icons-pharma-5abd434994b948.7788752515223529696092.png" alt ="Missing"/>
       </div>
+      
+      <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => { this.toggle('1'); }}
+            >
+              Login
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => { this.toggle('2'); }}
+            >
+              Register
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+          <form className="authFormDevider">
+          <FormGroup>
+        <Label for="exampleEmail">Email address</Label>
+        <Input
+          type="email"
+          name="email"
+          id="exampleEmail"
+          placeholder="Enter email"
+        />
+        <FormText color="muted">
+          We'll never share your email with anyone else.
+        </FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="examplePassword">Password</Label>
+        <Input
+          type="password"
+          name="password"
+          id="examplePassword"
+          placeholder="Password"
+        />
+      </FormGroup>
+     <Button color="primary" type="submit">
+        Login
+      </Button>
+          </form>
+          </TabPane>
+          
+          <TabPane tabId="2">
+          <form className="authFormDevider">
+          <div className="form-row">
+          <FormGroup className="col-md-6">
+            <Label for="inputEmail4">Email</Label>
+            <Input type="email"  id="inputEmail4" placeholder="Email"/>
+          </FormGroup>
+          <FormGroup className="col-md-6">
+            <Label for="inputPassword4">Password</Label>
+            <Input type="password"  id="inputPassword4" placeholder="Password"/>
+          </FormGroup>
+         </div>
+          <FormGroup>
+            <Label for="inputAddress">Name</Label>
+            <Input type="text"  id="inputAddress" placeholder="User Full Name"/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="inputAddress2">Identification Number</Label>
+            <Input type="text"  id="inputAddress2" placeholder="Nid / Passport / Birth Cirtificate/ Doctor, Pharma or Hospitals licence no"/>
+          </FormGroup>
+        <div className="form-row">
+          <FormGroup className="col-md-6">
+            <Label for="inputCity">Phone</Label>
+            <Input type="text"  id="inputCity"/>
+          </FormGroup>
+          <FormGroup className="col-md-6">
+            <Label for="inputState">User Type</Label>
+            <Input type="select" name="select" id="inputState" >
+              <option>Patient</option>
+              <option>Doctor</option>
+              <option>Pharmacy</option>
+              <option>Hospital</option>
+            </Input>
+          </FormGroup>
+         
+        </div>
+        
+        <Button type="submit" color="primary">Register</Button>
+      </form>
+          </TabPane>
+        </TabContent>
+      </div>
+      
+      </div>
+      </div>
+     
+     
     );
   }
 }

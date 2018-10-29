@@ -40,7 +40,7 @@ var dashRoutes = [
     name: "Log Out",
     icon: "nc-icon nc-spaceship"
   },
-  { redirect: true, path: "/", pathTo: "/login", name: "Login" },
+  { redirect: true, path: "/", pathTo: "/auth", name: "Auth" },
   //{ redirect: true, path: "/Auth", pathTo: "/Auth", name: "Auth" }
 ];
 export default dashRoutes;
