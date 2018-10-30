@@ -13,17 +13,36 @@ import {
 
 } from "reactstrap";
 import classnames from 'classnames';
+import {client} from "../../index";
+import gql from "graphql-tag";
+
+
 class Auth extends React.Component {
 
   constructor(props) {
     super(props);
-    
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      loginEmail : '',
+      loginPass : '',
+      token : '',
+      regEmail : '',
+      regPass : '',
+      regName : '',
+      regId : '',
+      regPhn : '',
+      regType : '',
+
     };
 
     this.toggle = this.toggle.bind(this);
-    
+    this.handleChange = this.handleChange.bind(this);
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+  }
+
+  handleChange(evt) {
+    this.setState({ [evt.target.id]: evt.target.value });
   }
 
   toggle(tab) {
@@ -33,6 +52,63 @@ class Auth extends React.Component {
       });
     }
   }
+
+  async login(){
+    alert("Successfully Loggedin")
+    const obj = await client.mutate({
+      mutation: gql`
+         mutation signinUser($email: String!, $password: String!){
+        signinUser(
+          email: { email: $email, password: $password }
+        ) {
+          token
+          user {
+            id
+            email
+            name
+            phone
+            prescriptions {
+              docname
+              docid
+              details
+              med
+            }
+          }
+        }
+      }
+      `,
+      
+      variables: {
+        email: this.state.loginEmail,
+        password: this.state.loginPass
+      },
+
+    });
+ }
+
+ async register(){
+  alert("Successfully Registered")
+  const obj = await client.mutate({
+    mutation: gql`
+       mutation createUser($email: String!, $password: String!){
+        createUser(
+          authProvider : {
+        email: { email: $email, password: $password }
+          }
+      ) {
+        id
+      }
+    }
+    `,
+    
+    variables: {
+      email: this.state.regEmail,
+      password: this.state.regPass
+    },
+
+  });
+}
+
 
   render() {
     return (
@@ -63,63 +139,67 @@ class Auth extends React.Component {
           </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
+
           <TabPane tabId="1">
+          
           <form className="authFormDevider">
           <FormGroup>
-        <Label for="exampleEmail">Email address</Label>
-        <Input
-          type="email"
-          name="email"
-          id="exampleEmail"
-          placeholder="Enter email"
-        />
-        <FormText color="muted">
-          We'll never share your email with anyone else.
-        </FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplePassword">Password</Label>
-        <Input
-          type="password"
-          name="password"
-          id="examplePassword"
-          placeholder="Password"
-        />
-      </FormGroup>
-     <Button color="primary" type="submit">
-        Login
-      </Button>
+            <Label for="exampleEmail">Email address</Label>
+            <Input
+              type="email"
+              id="loginEmail"
+              placeholder="Enter email"
+              onChange={this.handleChange}
+            />
+            <FormText color="muted">
+              We'll never share your email with anyone else.
+            </FormText>
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              id="loginPass"
+              placeholder="Password"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+        <Button color="primary" onClick={this.login}>
+            Login
+          </Button>
           </form>
+
           </TabPane>
           
           <TabPane tabId="2">
+
           <form className="authFormDevider">
           <div className="form-row">
           <FormGroup className="col-md-6">
             <Label for="inputEmail4">Email</Label>
-            <Input type="email"  id="inputEmail4" placeholder="Email"/>
+            <Input type="email"  id="regEmail" placeholder="Email" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup className="col-md-6">
             <Label for="inputPassword4">Password</Label>
-            <Input type="password"  id="inputPassword4" placeholder="Password"/>
+            <Input type="password"  id="regPass" placeholder="Password" onChange={this.handleChange}/>
           </FormGroup>
          </div>
           <FormGroup>
             <Label for="inputAddress">Name</Label>
-            <Input type="text"  id="inputAddress" placeholder="User Full Name"/>
+            <Input type="text"  id="regName" placeholder="User Full Name" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="inputAddress2">Identification Number</Label>
-            <Input type="text"  id="inputAddress2" placeholder="Nid / Passport / Birth Cirtificate/ Doctor, Pharma or Hospitals licence no"/>
+            <Input type="text"  id="regId" placeholder="Nid / Passport / Birth Cirtificate/ Doctor, Pharma or Hospitals licence no" onChange={this.handleChange}/>
           </FormGroup>
         <div className="form-row">
           <FormGroup className="col-md-6">
             <Label for="inputCity">Phone</Label>
-            <Input type="text"  id="inputCity"/>
+            <Input type="text"  id="regPhn" onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup className="col-md-6">
             <Label for="inputState">User Type</Label>
-            <Input type="select" name="select" id="inputState" >
+            <Input type="select" name="select" id="regType" onChange={this.handleChange}>
               <option>Patient</option>
               <option>Doctor</option>
               <option>Pharmacy</option>
@@ -129,8 +209,9 @@ class Auth extends React.Component {
          
         </div>
         
-        <Button type="submit" color="primary">Register</Button>
+        <Button type="submit" color="primary" onClick={this.register}>Register</Button>
       </form>
+
           </TabPane>
         </TabContent>
       </div>
@@ -141,6 +222,7 @@ class Auth extends React.Component {
      
     );
   }
+  
 }
 
 export default Auth;

@@ -214,9 +214,6 @@ class Prescription extends React.Component {
     }
     `}] 
   });
-
-  
-  
 }
 
   render() {
