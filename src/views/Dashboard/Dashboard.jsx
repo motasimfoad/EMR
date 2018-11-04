@@ -20,8 +20,32 @@ import {
   dashboardNASDAQChart
 } from "variables/charts.jsx";
 
-class Dashboard extends React.Component {
+class Dashboard extends React.Component  {
+   
+ 
+
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   modal: false,
+    //    logInfoId : '',
+    // };
+    
+    if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
+      console.log('Info nai')
+    } else {
+
+      this.state = {
+        logInfoId : this.props.history.location.state.logInfo[1],
+        logInfoToken : this.props.history.location.state.logInfo[0],
+      }
+        console.log(this.state.logInfoId);
+    }
+}
+  
   render() {
+  
+    
     return (
       <div className="content">
         <Row>

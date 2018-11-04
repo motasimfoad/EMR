@@ -54,7 +54,6 @@ class Auth extends React.Component {
   }
 
   async login(){
-    alert("Successfully Loggedin")
     const obj = await client.mutate({
       mutation: gql`
          mutation signinUser($email: String!, $password: String!){
@@ -83,7 +82,14 @@ class Auth extends React.Component {
         password: this.state.loginPass
       },
 
+    })
+    .then(result => { this.props.history.push({
+      pathname: '/dashboard',
+      state: { logInfo: [result.data.signinUser.token, 
+                      result.data.signinUser.user.id] }
     });
+     })
+    .catch(error => { alert("Incorrect username or password") });
  }
 
  async register(){
