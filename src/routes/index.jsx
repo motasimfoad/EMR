@@ -1,6 +1,7 @@
 import Dashboard from "layouts/Dashboard/Dashboard.jsx";
 import Auth from "../views/Auth/Auth.jsx";
 import Unauth from "../views/Unauth/Unauth.jsx";
+import Search from "../views/Search/Search.jsx";
 
 var indexRoutes = [
     {
@@ -12,6 +13,11 @@ var indexRoutes = [
         path: "/unauth",
         name: "Unauth",
         component: Unauth
+    },
+    {
+        path: "/search",
+        name: "Search",
+        component: Search
     },
     { path: "/", name: "Home", component: Dashboard },
 ];
