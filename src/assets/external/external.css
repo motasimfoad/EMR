@@ -64,3 +64,13 @@ text-align: center;
 padding-left: 35%;
 padding-bottom: 3%;
 }
+
+.unauthMain{
+    text-align: center;
+    padding-top: 8%;
+}
+
+.unauthImg{
+    
+    width: 25%;
+}

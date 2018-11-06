@@ -32,7 +32,9 @@ class Dashboard extends React.Component  {
     // };
     
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
-      console.log('Info nai')
+      this.props.history.push({
+        pathname: '/unauth',
+      });
     } else {
 
       this.state = {
