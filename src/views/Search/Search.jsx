@@ -41,6 +41,7 @@ class Search extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.display = this.display.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.logOut = this.logOut.bind(this);
 
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
       this.props.history.push({
@@ -66,6 +67,12 @@ class Search extends React.Component {
 
   handleEdit() {
     this.setState({mode: 'edit'});
+  }
+
+  logOut(){
+    this.props.history.push({
+      pathname: '/auth',
+    });
   }
 
   display(){
@@ -133,6 +140,7 @@ class Search extends React.Component {
           Search for prescription
        </Row>
       </div>
+      <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
       </div>
       );
     } else {
@@ -171,6 +179,7 @@ class Search extends React.Component {
            </Alert>
        
         </h4>
+        {/* <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button> */}
        </div>
         
       }
@@ -255,6 +264,7 @@ class Search extends React.Component {
 
       </Row>
       </div>
+      <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
       </div>
 
       );
