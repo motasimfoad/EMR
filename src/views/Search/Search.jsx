@@ -161,7 +161,7 @@ class Search extends React.Component {
       <Row className="helper">
 
       {this.state.result.data.allPrescriptions.length === 0 &&
-        <div>
+        <div className="searchCenter">
           <Alert color="danger">
           <h3>
           No prescription found corresponding to given id/nid/phone/passport/birthcirtificate.

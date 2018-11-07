@@ -79,3 +79,8 @@ padding-bottom: 3%;
 width: 100%;
 text-align: center;
 }
+
+.searchCenter{
+    text-align: center;
+    padding-left: 13%;
+}
