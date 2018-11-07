@@ -41,6 +41,12 @@ class Search extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.display = this.display.bind(this);
     this.toggle = this.toggle.bind(this);
+
+    if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
+      this.props.history.push({
+        pathname: '/unauth',
+      });
+    }
   }
 
   toggle(viewPresciptionId) {
@@ -124,8 +130,8 @@ class Search extends React.Component {
         </Navbar>
         <div>
         <Row className="helper">
-        Search for prescription
-        </Row>
+          Search for prescription
+       </Row>
       </div>
       </div>
       );

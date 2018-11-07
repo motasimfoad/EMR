@@ -63,6 +63,7 @@ class Auth extends React.Component {
           token
           user {
             id
+            utype
             email
             name
             phone
@@ -83,11 +84,21 @@ class Auth extends React.Component {
       },
 
     })
-    .then(result => { this.props.history.push({
-      pathname: '/dashboard',
-      state: { logInfo: [result.data.signinUser.token, 
-                      result.data.signinUser.user.id] }
-    });
+    .then(result => { 
+      
+      if (result.data.signinUser.user.utype === "Pharmacy") {
+        this.props.history.push({
+          pathname: '/search',
+          state: { logInfo: [result.data.signinUser.token, 
+                          result.data.signinUser.user.id] }
+        });
+      } else {
+        this.props.history.push({
+          pathname: '/dashboard',
+          state: { logInfo: [result.data.signinUser.token, 
+                          result.data.signinUser.user.id] }
+        });
+      }
      })
     .catch(error => { alert("Incorrect username or password") });
  }
