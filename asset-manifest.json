@@ -1,10 +1,10 @@
 {
-  "main.css": "/EMR/static/css/main.4e09a3f6.chunk.css",
-  "main.js": "/EMR/static/js/main.00806e21.chunk.js",
-  "main.js.map": "/EMR/static/js/main.00806e21.chunk.js.map",
+  "main.css": "/EMR/static/css/main.4b279b61.chunk.css",
+  "main.js": "/EMR/static/js/main.9421786b.chunk.js",
+  "main.js.map": "/EMR/static/js/main.9421786b.chunk.js.map",
   "static/css/1.02852ea2.chunk.css": "/EMR/static/css/1.02852ea2.chunk.css",
-  "static/js/1.11327c9c.chunk.js": "/EMR/static/js/1.11327c9c.chunk.js",
-  "static/js/1.11327c9c.chunk.js.map": "/EMR/static/js/1.11327c9c.chunk.js.map",
+  "static/js/1.1f49941d.chunk.js": "/EMR/static/js/1.1f49941d.chunk.js",
+  "static/js/1.1f49941d.chunk.js.map": "/EMR/static/js/1.1f49941d.chunk.js.map",
   "runtime~main.js": "/EMR/static/js/runtime~main.d02e2d9c.js",
   "runtime~main.js.map": "/EMR/static/js/runtime~main.d02e2d9c.js.map",
   "static/media/damir-bosnjak.jpg": "/EMR/static/media/damir-bosnjak.a6f24e7d.jpg",
@@ -14,9 +14,9 @@
   "static/media/logo.svg": "/EMR/static/media/logo.5d5d9eef.svg",
   "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.48ac036d.ttf",
   "static/media/mike.jpg": "/EMR/static/media/mike.aab414f7.jpg",
-  "static/css/main.4e09a3f6.chunk.css.map": "/EMR/static/css/main.4e09a3f6.chunk.css.map",
   "static/css/1.02852ea2.chunk.css.map": "/EMR/static/css/1.02852ea2.chunk.css.map",
+  "static/css/main.4b279b61.chunk.css.map": "/EMR/static/css/main.4b279b61.chunk.css.map",
   "index.html": "/EMR/index.html",
-  "precache-manifest.fc064a0b135ef70b112f4bae723ec436.js": "/EMR/precache-manifest.fc064a0b135ef70b112f4bae723ec436.js",
+  "precache-manifest.8370f1649d361657f199237d1634de2f.js": "/EMR/precache-manifest.8370f1649d361657f199237d1634de2f.js",
   "service-worker.js": "/EMR/service-worker.js"
 }
