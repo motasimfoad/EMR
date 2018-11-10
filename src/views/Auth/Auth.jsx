@@ -92,7 +92,14 @@ class Auth extends React.Component {
           state: { logInfo: [result.data.signinUser.token, 
                           result.data.signinUser.user.id] }
         });
-      } else {
+      } else if(result.data.signinUser.user.utype === "Doctor") {
+        this.props.history.push({
+          pathname: '/docdash',
+          state: { logInfo: [result.data.signinUser.token, 
+                          result.data.signinUser.user.id] }
+        });
+      }
+      else {
         this.props.history.push({
           pathname: '/dashboard',
           state: { logInfo: [result.data.signinUser.token, 

@@ -22,7 +22,8 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import gql from "graphql-tag";
 import {client} from "../../index";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { withApollo } from 'react-apollo'
+import { withApollo } from 'react-apollo';
+import Footer from "../../components/Footer/Footer";
 
 
 class Search extends React.Component {
@@ -141,6 +142,7 @@ class Search extends React.Component {
        </Row>
       </div>
       <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
+      <Footer />
       </div>
       );
     } else {
@@ -179,7 +181,7 @@ class Search extends React.Component {
            </Alert>
        
         </h4>
-        {/* <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button> */}
+        
        </div>
         
       }
@@ -264,7 +266,9 @@ class Search extends React.Component {
 
       </Row>
       </div>
+      
       <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
+      <Footer />
       </div>
 
       );
