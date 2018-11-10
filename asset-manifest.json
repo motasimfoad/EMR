@@ -1,7 +1,7 @@
 {
   "main.css": "/EMR/static/css/main.2d35e66f.chunk.css",
-  "main.js": "/EMR/static/js/main.47a6b0d1.chunk.js",
-  "main.js.map": "/EMR/static/js/main.47a6b0d1.chunk.js.map",
+  "main.js": "/EMR/static/js/main.ffda938b.chunk.js",
+  "main.js.map": "/EMR/static/js/main.ffda938b.chunk.js.map",
   "static/css/1.02852ea2.chunk.css": "/EMR/static/css/1.02852ea2.chunk.css",
   "static/js/1.c4e9d97f.chunk.js": "/EMR/static/js/1.c4e9d97f.chunk.js",
   "static/js/1.c4e9d97f.chunk.js.map": "/EMR/static/js/1.c4e9d97f.chunk.js.map",
@@ -14,9 +14,9 @@
   "static/media/logo.svg": "/EMR/static/media/logo.5d5d9eef.svg",
   "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.48ac036d.ttf",
   "static/media/mike.jpg": "/EMR/static/media/mike.aab414f7.jpg",
-  "static/css/main.2d35e66f.chunk.css.map": "/EMR/static/css/main.2d35e66f.chunk.css.map",
   "static/css/1.02852ea2.chunk.css.map": "/EMR/static/css/1.02852ea2.chunk.css.map",
+  "static/css/main.2d35e66f.chunk.css.map": "/EMR/static/css/main.2d35e66f.chunk.css.map",
   "index.html": "/EMR/index.html",
-  "precache-manifest.5fa783b0d2293dcbe223117416a0d062.js": "/EMR/precache-manifest.5fa783b0d2293dcbe223117416a0d062.js",
+  "precache-manifest.725b6daa9cfe61c52f605ec5ca773d79.js": "/EMR/precache-manifest.725b6daa9cfe61c52f605ec5ca773d79.js",
   "service-worker.js": "/EMR/service-worker.js"
 }
