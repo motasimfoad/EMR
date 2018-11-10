@@ -96,7 +96,8 @@ class Auth extends React.Component {
         this.props.history.push({
           pathname: '/docdash',
           state: { logInfo: [result.data.signinUser.token, 
-                          result.data.signinUser.user.id] }
+                          result.data.signinUser.user.id,
+                        result.data.signinUser.user.name] }
         });
       }
       else {
