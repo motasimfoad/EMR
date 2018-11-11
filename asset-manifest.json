@@ -1,7 +1,7 @@
 {
   "main.css": "/EMR/static/css/main.a91ec94b.chunk.css",
-  "main.js": "/EMR/static/js/main.a2bba9cc.chunk.js",
-  "main.js.map": "/EMR/static/js/main.a2bba9cc.chunk.js.map",
+  "main.js": "/EMR/static/js/main.092cb725.chunk.js",
+  "main.js.map": "/EMR/static/js/main.092cb725.chunk.js.map",
   "static/css/1.02852ea2.chunk.css": "/EMR/static/css/1.02852ea2.chunk.css",
   "static/js/1.e3083ba3.chunk.js": "/EMR/static/js/1.e3083ba3.chunk.js",
   "static/js/1.e3083ba3.chunk.js.map": "/EMR/static/js/1.e3083ba3.chunk.js.map",
@@ -12,11 +12,11 @@
   "static/media/joe-gardner-2.jpg": "/EMR/static/media/joe-gardner-2.76ff47ae.jpg",
   "static/media/clem-onojeghuo-2.jpg": "/EMR/static/media/clem-onojeghuo-2.bb4b9ac9.jpg",
   "static/media/logo.svg": "/EMR/static/media/logo.5d5d9eef.svg",
-  "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.6836b93b.woff",
+  "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.48ac036d.ttf",
   "static/media/mike.jpg": "/EMR/static/media/mike.aab414f7.jpg",
   "static/css/main.a91ec94b.chunk.css.map": "/EMR/static/css/main.a91ec94b.chunk.css.map",
   "static/css/1.02852ea2.chunk.css.map": "/EMR/static/css/1.02852ea2.chunk.css.map",
   "index.html": "/EMR/index.html",
-  "precache-manifest.9ea273472659e3850844eead429a6c09.js": "/EMR/precache-manifest.9ea273472659e3850844eead429a6c09.js",
+  "precache-manifest.0e3d94d9a4108336f8e877dc476aa47f.js": "/EMR/precache-manifest.0e3d94d9a4108336f8e877dc476aa47f.js",
   "service-worker.js": "/EMR/service-worker.js"
 }
