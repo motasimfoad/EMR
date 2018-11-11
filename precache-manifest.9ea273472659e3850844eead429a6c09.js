@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/joe-gardner-2.76ff47ae.jpg"
   },
   {
-    "revision": "ffda938b9b361b873f76",
-    "url": "/EMR/static/css/main.2d35e66f.chunk.css"
+    "revision": "a2bba9cc3f76f8fe8e75",
+    "url": "/EMR/static/css/main.a91ec94b.chunk.css"
   },
   {
-    "revision": "48ac036da7c7923266266f63746fc5f1",
-    "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
   },
   {
-    "revision": "c4e9d97fdadefbb23502",
-    "url": "/EMR/static/js/1.c4e9d97f.chunk.js"
+    "revision": "e3083ba3afeaa35a8505",
+    "url": "/EMR/static/js/1.e3083ba3.chunk.js"
   },
   {
     "revision": "d02e2d9c8d0de31bb889",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/ayo-ogunseinde-2.bfc688ca.jpg"
   },
   {
-    "revision": "ffda938b9b361b873f76",
-    "url": "/EMR/static/js/main.ffda938b.chunk.js"
+    "revision": "a2bba9cc3f76f8fe8e75",
+    "url": "/EMR/static/js/main.a2bba9cc.chunk.js"
   },
   {
     "revision": "bb4b9ac9fd07e48f86c719495b65341c",
@@ -52,15 +52,15 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
+    "revision": "48ac036da7c7923266266f63746fc5f1",
+    "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
   },
   {
-    "revision": "c4e9d97fdadefbb23502",
+    "revision": "e3083ba3afeaa35a8505",
     "url": "/EMR/static/css/1.02852ea2.chunk.css"
   },
   {
-    "revision": "75fc10cd53a74499b1328a67b9fb9e9c",
+    "revision": "8aee43e1154368258fba7a1caaec1924",
     "url": "/EMR/index.html"
   }
 ];
