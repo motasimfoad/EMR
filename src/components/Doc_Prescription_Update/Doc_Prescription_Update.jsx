@@ -24,6 +24,7 @@ class Doc_Prescription_Update extends React.Component {
     super(props);
     
       this.handleChange = this.handleChange.bind(this);
+      this.back = this.back.bind(this);
 
       if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
         this.props.history.push({
@@ -129,7 +130,7 @@ class Doc_Prescription_Update extends React.Component {
           Health Issues : <b>{data.updatePrescription.details}</b>< br />
           Paitent Contact No : <b>{data.updatePrescription.phn}</b>< br />
           </CardText>
-          <Button href="/prescription">Back</Button>
+          <Button onClick={this.back}>Back</Button>
         </Card>
        </div> ;
       if (error) return <p>Error :(</p>;

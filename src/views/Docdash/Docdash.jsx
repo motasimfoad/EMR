@@ -39,7 +39,7 @@ class Docdash extends React.Component {
         logInfoToken : this.props.history.location.state.logInfo[0],
         uname : this.props.history.location.state.logInfo[2]
       }
-        console.log(this.state.uname);
+        console.log(this.state.logInfoId);
     }
    
   }

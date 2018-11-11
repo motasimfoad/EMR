@@ -40,8 +40,8 @@ class CP_doc extends React.Component {
       }
       else {
           this.state = {
-            drid : this.props.history.location.state.logInfo[1],
-          logInfoToken : this.props.history.location.state.logInfo[0],
+            drid : this.props.history.location.state.logInfo[0],
+          logInfoToken : this.props.history.location.state.logInfo[1],
           docname : this.props.history.location.state.logInfo[2]
         }
           console.log(this.state.uname);

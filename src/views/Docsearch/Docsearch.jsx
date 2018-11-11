@@ -41,6 +41,7 @@ class Docsearch extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.logOut = this.logOut.bind(this);
     this.up = this.up.bind(this);
+    this.back =this.back.bind(this);
 
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
       this.props.history.push({
@@ -99,10 +100,10 @@ class Docsearch extends React.Component {
   back() {
     this.props.history.push({
       pathname: '/docdash',
-      // state: { logInfo: [this.state.drid, 
-      //   this.state.logInfoToken,
-      //   this.state.docname
-      // ] }
+      state: { logInfo: [this.state.drid, 
+        this.state.logInfoToken,
+        this.state.docname
+      ] }
     });
   }
 
@@ -163,41 +164,43 @@ class Docsearch extends React.Component {
   render () {
     if(this.state.mode === 'view') {
       return (
-        <div className="content">
-        <Navbar expand="lg" color="dark">
-        <Form inline className="ml-auto">
-         <FormGroup className={"no-border"}>
-          <Input type="text" placeholder="Search" id="inputText" onChange={this.handleChange}/>
-        </FormGroup>
-        <Button  color="neutral" icon round onClick={this.display}>
-         <i className="nc-icon nc-zoom-split"></i>
-       </Button>
-        </Form>
-        </Navbar>
         <div>
-        <Row className="helper">
-          Search for prescription
-       </Row>
-      </div>
-      <Button type="submit" value="Submit" color="success" size="lg" onClick={this.back}><i className="fa fa-angle-double-left "/> &nbsp;Back</Button>
-      <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
+       <div >
+      
+         <Alert className="searchbar" color="danger">
+         <br/>
+         
+         <h2>
+         <i className="fa fa-search "/> 
+         &nbsp;&nbsp;Search for prescription <br/>
+         </h2>
+         
+         
+       
+         
+      <form>
+      <Input className="searchboxheight" type="text" placeholder="Search using nid/phone/any kind of id" id="inputText" onChange={this.handleChange} required/>
+      <br />
+      <Button type="submit" size="lg" color="primary" onClick={this.display}>
+         <i className="nc-icon nc-zoom-split" />  Search
+       </Button> <br />
+       </form>
+       <Button type="submit" value="Submit" color="info" size="lg" onClick={this.back}><i className="fa fa-angle-double-left "/> &nbsp;Back</Button>
+      <Button color="warning" size="lg" onClick={this.logOut}>LogOut</Button>
+      </Alert>
+      
+     </div>
+     
+
+       
       <Footer />
       </div>
       );
     } else {
       return (
 
-        <div className="content">
-      <Navbar expand="lg" color="dark">
-      <Form inline className="ml-auto">
-       <FormGroup className={"no-border"}>
-        <Input type="text" placeholder="Search" id="searchText" onChange={this.handleChange}/>
-      </FormGroup>
-      <Button  color="neutral" icon round onClick={this.display}>
-       <i className="nc-icon nc-zoom-split"></i>
-     </Button>
-      </Form>
-      </Navbar>
+        <div className="searchCentralized">
+     <Alert color="danger">
       <div>
       <Row className="helper">
 
@@ -302,14 +305,17 @@ class Docsearch extends React.Component {
           </CardBody>
           </Card>
           </Col>
+          
       ))
       }
 
       </Row>
       </div>
-      <Button type="submit" value="Submit" color="success" size="lg" onClick={this.back}><i className="fa fa-angle-double-left "/> &nbsp;Back</Button>
-      <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
+      <Button type="submit" value="Submit" color="info" size="lg" onClick={this.back}><i className="fa fa-angle-double-left "/> &nbsp;Back</Button>
+      <Button color="warning" size="lg" onClick={this.logOut}>LogOut</Button>
+      </Alert>
       <Footer />
+      
       </div>
 
       );
