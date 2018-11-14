@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/joe-gardner-2.76ff47ae.jpg"
   },
   {
-    "revision": "a2427af77c88c823b047",
-    "url": "/EMR/static/css/main.a91ec94b.chunk.css"
+    "revision": "6212ffd3f5a31744f666",
+    "url": "/EMR/static/css/main.201eb6ed.chunk.css"
   },
   {
     "revision": "48ac036da7c7923266266f63746fc5f1",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/ayo-ogunseinde-2.bfc688ca.jpg"
   },
   {
-    "revision": "a2427af77c88c823b047",
-    "url": "/EMR/static/js/main.a2427af7.chunk.js"
+    "revision": "6212ffd3f5a31744f666",
+    "url": "/EMR/static/js/main.6212ffd3.chunk.js"
   },
   {
     "revision": "bb4b9ac9fd07e48f86c719495b65341c",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/EMR/static/css/1.02852ea2.chunk.css"
   },
   {
-    "revision": "e4840499abde184a575bff61224d67f1",
+    "revision": "82b8c31dcc9e875c4c54080404fdf619",
     "url": "/EMR/index.html"
   }
 ];
