@@ -125,25 +125,30 @@ class Search extends React.Component {
   render () {
     if(this.state.mode === 'view') {
       return (
-        <div className="content">
-        <Navbar expand="lg" color="dark">
-        <Form inline className="ml-auto">
-         <FormGroup className={"no-border"}>
-          <Input type="text" placeholder="Search" id="inputText" onChange={this.handleChange}/>
-        </FormGroup>
-        <Button  color="neutral" icon round onClick={this.display}>
-         <i className="nc-icon nc-zoom-split"></i>
-       </Button>
-        </Form>
-        </Navbar>
+
         <div>
-        <Row className="helper">
-          Search for prescription
-       </Row>
-      </div>
-      <Button className="searchBtHelper" color="warning" onClick={this.logOut}>LogOut</Button>
-      <Footer />
-      </div>
+        <div >
+         <Alert className="searchbar" color="danger">
+         <br/>
+         <h2>
+         <i className="fa fa-search "/> 
+         &nbsp;&nbsp;Search for prescription <br/>
+         </h2>
+         <form>
+        <Input className="searchboxheight" type="text" placeholder="Search using nid/phone/any kind of id" id="inputText" onChange={this.handleChange} required/>
+        <br />
+        <Button size="lg" color="primary" onClick={this.display}>
+          <i className="nc-icon nc-zoom-split" />  Search
+        </Button> <br />
+        </form>
+        <Button color="warning" size="lg" onClick={this.logOut}>LogOut</Button>
+        </Alert>
+      
+       </div>
+       <Footer />
+       </div>
+
+        
       );
     } else {
       return (

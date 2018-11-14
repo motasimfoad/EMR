@@ -20,11 +20,11 @@ const cache = new InMemoryCache();
 
 export const client = new ApolloClient({
   link: new HttpLink(),
-  credentials: 'same-origin',
-  headers: {
-    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-    "Access-Control-Allow-Credentials" : true
-  },
+  // credentials: 'same-origin',
+  // headers: {
+  //   "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+  //   "Access-Control-Allow-Credentials" : true
+  // },
   cache,
   uri: "https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73"
 });

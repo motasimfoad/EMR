@@ -128,7 +128,7 @@ class CP_doc extends React.Component {
           <Button onClick={this.back}>Back</Button>
         </Card>
        </div> ;
-      if (error) return <p>Error :(</p>;
+      if (error) return <p>Invalid Docor Id</p>;
       return  <Row>
       <Col md={12}>
         <Card>
