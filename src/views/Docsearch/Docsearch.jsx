@@ -197,7 +197,7 @@ class Docsearch extends React.Component {
         <div className="content">
       <Navbar expand="lg" color="dark">
       <Form inline className="ml-auto">
-       <FormGroup className={"no-border"}>
+       <FormGroup >
         <Input type="text" placeholder="Search" id="searchText" onChange={this.handleChange}/>
       </FormGroup>
       <Button  color="neutral" icon round onClick={this.display}>
