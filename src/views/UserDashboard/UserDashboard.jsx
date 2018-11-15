@@ -19,11 +19,7 @@ class UserDashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-     
-
-    // };
-
+    
     this.back = this.back.bind(this);
     this.search = this.search.bind(this);
     this.cp = this.cp.bind(this);
@@ -51,7 +47,8 @@ class UserDashboard extends React.Component {
 
   back() {
     this.props.history.push({
-      pathname: '/auth',
+      pathname: '/auth'
+     
     });
   }
 

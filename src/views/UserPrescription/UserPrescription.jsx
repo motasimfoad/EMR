@@ -147,6 +147,7 @@ class UserPrescription extends React.Component {
     super(props);
     
     this.toggle = this.toggle.bind(this);
+    this.back = this.back.bind(this);
     
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
       this.props.history.push({
@@ -170,6 +171,16 @@ class UserPrescription extends React.Component {
 
   }
 
+  back() {
+    this.props.history.push({
+      pathname: '/userdashboard',
+      state : {logInfo: [this.state.logInfoId, 
+        this.state.logInfoToken,
+        this.state.uname
+      ] }
+    });
+  }
+
   toggle(viewPresciptionId) {
     this.setState({
       modal: !this.state.modal,
@@ -182,21 +193,14 @@ class UserPrescription extends React.Component {
     return (
       <div className="content">
       <Navbar expand="lg" color="dark">
-      <Form inline className="ml-auto">
-       <FormGroup className={"no-border"}>
-        <Input type="text" placeholder="Search"/>
-      </FormGroup>
-      <Button color="neutral" icon round>
-       <i className="nc-icon nc-zoom-split"></i>
-     </Button>
-      </Form>
+      
       </Navbar>
       <div>
       <Row className="helper">
 
       <ListUser toggle={this.toggle} state={this.state} delete={this.delete} preDelete={this.preDelete} up={this.up}/>
-
       </Row>
+      <Button type="submit" value="Submit" color="info" className="searchBtHelper" onClick={this.back}><i className="fa fa-angle-double-left "/> &nbsp;Back</Button>
       </div>
       </div>
     );
