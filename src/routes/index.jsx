@@ -6,7 +6,8 @@ import Docdash from "../views/Docdash/Docdash.jsx";
 import CP_doc from "../components/CP_doc/CP_doc.jsx";
 import Docsearch from "../views/Docsearch/Docsearch.jsx";
 import Doc_Prescription_Update from "../components/Doc_Prescription_Update/Doc_Prescription_Update.jsx";
-
+import UserDashboard from "../views/UserDashboard/UserDashboard.jsx";
+import UserPrescription from "../views/UserPrescription/UserPrescription.jsx";
 
 var indexRoutes = [
     {
@@ -44,6 +45,17 @@ var indexRoutes = [
         name: "Doc_Prescription_Update",
         component: Doc_Prescription_Update
     },
+    {
+        path: "/userdashboard",
+        name: "UserDashboard",
+        component: UserDashboard
+    },
+    {
+        path: "/userprescription",
+        name: "UserPrescription",
+        component: UserPrescription
+    },
+    
     { path: "/", name: "Home", component: Dashboard },
 ];
 
