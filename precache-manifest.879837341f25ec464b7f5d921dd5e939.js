@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/joe-gardner-2.76ff47ae.jpg"
   },
   {
-    "revision": "6212ffd3f5a31744f666",
-    "url": "/EMR/static/css/main.201eb6ed.chunk.css"
+    "revision": "55639df8a84570dbcc3f",
+    "url": "/EMR/static/css/main.f196fcd3.chunk.css"
   },
   {
     "revision": "48ac036da7c7923266266f63746fc5f1",
     "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
   },
   {
-    "revision": "e3083ba3afeaa35a8505",
-    "url": "/EMR/static/js/1.e3083ba3.chunk.js"
+    "revision": "7774011a23a3b929a246",
+    "url": "/EMR/static/js/1.7774011a.chunk.js"
   },
   {
     "revision": "d02e2d9c8d0de31bb889",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/ayo-ogunseinde-2.bfc688ca.jpg"
   },
   {
-    "revision": "6212ffd3f5a31744f666",
-    "url": "/EMR/static/js/main.6212ffd3.chunk.js"
+    "revision": "55639df8a84570dbcc3f",
+    "url": "/EMR/static/js/main.55639df8.chunk.js"
   },
   {
     "revision": "bb4b9ac9fd07e48f86c719495b65341c",
@@ -44,23 +44,23 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
-    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
   },
   {
     "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
     "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
+    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
+    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
-    "revision": "e3083ba3afeaa35a8505",
-    "url": "/EMR/static/css/1.02852ea2.chunk.css"
+    "revision": "7774011a23a3b929a246",
+    "url": "/EMR/static/css/1.88700b1c.chunk.css"
   },
   {
-    "revision": "82b8c31dcc9e875c4c54080404fdf619",
+    "revision": "6c441e33a5ed420674a08b8c9dfba761",
     "url": "/EMR/index.html"
   }
 ];
