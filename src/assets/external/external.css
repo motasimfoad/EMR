@@ -25,7 +25,8 @@ text-align: center;
 }
 
 .authMain{
-    background: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vjkyj2hBg/antenna-towers-with-radiowave-signal-vintage-style-flat-animation-on-dark-background_b-nzd3qg__F0000.png) no-repeat center center fixed; 
+    
+    background: url(../img/finalback.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -37,9 +38,8 @@ text-align: center;
 }
 
 .authForm{
-    width: 35vw;
-    background: white;
-    opacity: 0.97;
+    width: 25vw;
+    background: linear-gradient(400deg,#D3CCE3, #E9E4F0); 
     padding: 1%;
     border: 1px;
     border-radius: 3%;
@@ -67,7 +67,7 @@ padding-bottom: 3%;
 
 .unauthMain{
     text-align: center;
-    padding-top: 8%;
+    padding-top: 2%;
 }
 
 .unauthImg{

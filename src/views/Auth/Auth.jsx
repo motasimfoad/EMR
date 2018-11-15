@@ -160,9 +160,7 @@ class Auth extends React.Component {
       <div className ="authFormHelper">
       <div className="authForm">
 
-      <div className="authFormImgHelper">
-      <img className="authFormImg" src ="https://png2.kisspng.com/20180329/cre/kisspng-logo-swarm-computer-icons-pharma-5abd434994b948.7788752515223529696092.png" alt ="Missing"/>
-      </div>
+      
       
       <Nav tabs>
           <NavItem>
