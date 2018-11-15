@@ -31,13 +31,19 @@ class UserDashboard extends React.Component {
     }
     else {
         this.state = {
-        logInfoId : this.props.history.location.state.logInfo[1],
         logInfoToken : this.props.history.location.state.logInfo[0],
-        uname : this.props.history.location.state.logInfo[2]
+        logInfoId : this.props.history.location.state.logInfo[1],
+        phone : this.props.history.location.state.logInfo[2],
+        nid : this.props.history.location.state.logInfo[3],
+        uname : this.props.history.location.state.logInfo[4],
       }
         console.log(this.state.logInfoId);
         console.log(this.state.logInfoToken);
         console.log(this.state.uname);
+        console.log(this.state.phone);
+        console.log(this.state.nid);
+        
+        
         
         
     }
@@ -67,6 +73,8 @@ class UserDashboard extends React.Component {
       pathname: '/userprescription',
       state: { logInfo: [this.state.logInfoId, 
         this.state.logInfoToken,
+        this.state.nid,
+        this.state.phone,
         this.state.uname] }
     });
   }
@@ -76,8 +84,8 @@ class UserDashboard extends React.Component {
   render() {
     return (
       <div className="ddmain">
-      <img src ="https://images.vexels.com/media/users/3/144185/isolated/lists/a9075b02366ea61e8995f8d5b08d0267-flat-doctor-cartoon.png" />
-      <h3>Welcome Patient <b>{this.state.uname}</b> !!</h3>
+      <img src ="https://img10.androidappsapk.co/300/0/d/4/com.outpatient.williamosler.png" />
+      <h3>Welcome  <b>{this.state.uname}</b> !!</h3>
         <Row className="ddcenterbuttongroup">
       <Col sm="4">
       <Card >

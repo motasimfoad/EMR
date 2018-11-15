@@ -28,13 +28,16 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 const ListUser = (props) => (
   <Query
     query={gql`
-    query allPrescriptions($userid: ID!){
+    query allPrescriptions($phn: String, $nid: String){
       
       allPrescriptions(
         filter : {
-          user : {
-            id : $userid
+          OR : [{
+            phn : $phn
+          }, {
+            nid : $nid
           }
+          ]
       }
       ){
         id
@@ -53,7 +56,8 @@ const ListUser = (props) => (
     `}
     variables={
       {
-        userid : props.state.logInfoId
+        phn : props.state.phone,
+        nid : props.state.nid
       }
     }
   >
@@ -64,6 +68,7 @@ const ListUser = (props) => (
       if (error) return <p>Error :(</p>;
 
       return data.allPrescriptions.map(({ id, docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid }) => (
+         
           
           <Col key={id+1} xs="auto">
           
@@ -103,6 +108,11 @@ const ListUser = (props) => (
               <tr>
               <td>
               Paitent contact no :  &nbsp; {phn}
+              </td>
+              </tr>
+              <tr>
+              <td>
+              Patient Id : &nbsp; {nid}
               </td>
               </tr>
               <tr>
@@ -160,11 +170,18 @@ class UserPrescription extends React.Component {
         viewPresciptionId: null,
         logInfoId : this.props.history.location.state.logInfo[0],
         logInfoToken : this.props.history.location.state.logInfo[1],
-        uname : this.props.history.location.state.logInfo[2]
+        phone : this.props.history.location.state.logInfo[3],
+        nid : this.props.history.location.state.logInfo[2],
+        uname : this.props.history.location.state.logInfo[4],
+        
       }
         console.log(this.state.logInfoId);
         console.log(this.state.logInfoToken);
         console.log(this.state.uname);
+        console.log(this.state.nid);
+        console.log(this.state.phone);
+        
+        
         
         
     }
@@ -174,8 +191,10 @@ class UserPrescription extends React.Component {
   back() {
     this.props.history.push({
       pathname: '/userdashboard',
-      state : {logInfo: [this.state.logInfoId, 
-        this.state.logInfoToken,
+      state : {logInfo: [this.state.logInfoToken, 
+        this.state.logInfoId,
+        this.state.phone,
+        this.state.nid,
         this.state.uname
       ] }
     });
