@@ -105,6 +105,8 @@ class Auth extends React.Component {
           pathname: '/userdashboard',
           state: { logInfo: [result.data.signinUser.token, 
                           result.data.signinUser.user.id,
+                          result.data.signinUser.user.phone,
+                          result.data.signinUser.user.nid,
                         result.data.signinUser.user.name] }
         });
       }
