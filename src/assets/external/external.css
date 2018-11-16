@@ -1,3 +1,6 @@
+@import url(//fonts.googleapis.com/css?family=PT+Sans);
+@import url(https://fonts.googleapis.com/css?family=Tajawal);
+
 .helper{
     padding-left: 5%;
 }
@@ -112,3 +115,13 @@ padding-right: 1%;
     text-align: center;
 }
 
+.authPageTextLogo{
+    font-family: 'Tajawal', sans-serif;
+    color: white;
+}
+
+.mainAuthLogo{
+padding-left: 3%;
+padding-top: 3%;
+font-family: 'PT Sans', sans-serif;
+}

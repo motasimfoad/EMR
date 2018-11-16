@@ -157,6 +157,7 @@ class Auth extends React.Component {
   render() {
     return (
       <div className="authMain">
+      <h2 className="mainAuthLogo"><span className="authPageTextLogo">CVIS</span><b> EMR</b> </h2>
       <div className ="authFormHelper">
       <div className="authForm">
 
