@@ -100,6 +100,15 @@ class Auth extends React.Component {
                           result.data.signinUser.user.nid,
                         result.data.signinUser.user.name] }
         });
+      } else if(result.data.signinUser.user.utype === "Hospital") {
+        this.props.history.push({
+          pathname: '/hospitaldashboard',
+          state: { logInfo: [result.data.signinUser.token, 
+            result.data.signinUser.user.id,
+            result.data.signinUser.user.phone,
+            result.data.signinUser.user.nid,
+          result.data.signinUser.user.name] }
+        });
       } else if(result.data.signinUser.user.utype === "Patient") {
         this.props.history.push({
           pathname: '/userdashboard',

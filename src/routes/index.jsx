@@ -8,6 +8,7 @@ import Docsearch from "../views/Docsearch/Docsearch.jsx";
 import Doc_Prescription_Update from "../components/Doc_Prescription_Update/Doc_Prescription_Update.jsx";
 import UserDashboard from "../views/UserDashboard/UserDashboard.jsx";
 import UserPrescription from "../views/UserPrescription/UserPrescription.jsx";
+import HospitalDashboard from "../views/HospitalDashboard/HospitalDashboard.jsx"
 
 var indexRoutes = [
     {
@@ -54,6 +55,11 @@ var indexRoutes = [
         path: "/userprescription",
         name: "UserPrescription",
         component: UserPrescription
+    },
+    {
+        path: "/hospitaldashboard",
+        name: "HospitalDashboard",
+        component: HospitalDashboard
     },
     
     { path: "/", name: "Home", component: Dashboard },

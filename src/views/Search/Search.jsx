@@ -165,7 +165,7 @@ class Search extends React.Component {
       </Form>
       </Navbar>
       <div>
-      <Row className="helper">
+      <Row>
 
       {this.state.result.data.allPrescriptions.length === 0 &&
         <div className="searchCenter">
