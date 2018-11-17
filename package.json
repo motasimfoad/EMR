@@ -57,6 +57,7 @@
     "react-confirm-alert": "^2.0.6",
     "react-dev-utils": "^6.0.4",
     "react-dom": "16.5.2",
+    "react-dropzone": "^7.0.1",
     "react-google-maps": "9.4.5",
     "react-loading": "^2.0.3",
     "react-notification-alert": "0.0.8",

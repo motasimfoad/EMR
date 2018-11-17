@@ -60,10 +60,11 @@ class HospitalDashboard extends React.Component {
 
   cp() {
     this.props.history.push({
-      pathname: '/cp_doc',
-      state: { logInfo: [this.state.logInfoId, 
+      pathname: '/cp_hospital',
+      state: { logInfo: [this.state.nid, 
         this.state.logInfoToken,
-        this.state.uname
+        this.state.uname,
+        this.state.phone
       ] }
     });
   }

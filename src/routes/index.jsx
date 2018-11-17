@@ -8,7 +8,8 @@ import Docsearch from "../views/Docsearch/Docsearch.jsx";
 import Doc_Prescription_Update from "../components/Doc_Prescription_Update/Doc_Prescription_Update.jsx";
 import UserDashboard from "../views/UserDashboard/UserDashboard.jsx";
 import UserPrescription from "../views/UserPrescription/UserPrescription.jsx";
-import HospitalDashboard from "../views/HospitalDashboard/HospitalDashboard.jsx"
+import HospitalDashboard from "../views/HospitalDashboard/HospitalDashboard.jsx";
+import CP_Hospital from "../components/CP_Hospital/CP_Hospital.jsx";
 
 var indexRoutes = [
     {
@@ -35,6 +36,11 @@ var indexRoutes = [
         path: "/cp_doc",
         name: "CP_doc",
         component: CP_doc
+    },
+    {
+        path: "/cp_hospital",
+        name: "CP_Hospital",
+        component: CP_Hospital
     },
     {
         path: "/docsearch",
