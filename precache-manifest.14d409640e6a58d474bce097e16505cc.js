@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/joe-gardner-2.76ff47ae.jpg"
   },
   {
-    "revision": "11d2363e833f351de3ae",
-    "url": "/EMR/static/css/main.9d0de16b.chunk.css"
+    "revision": "a6f08222b30780b5ac5e",
+    "url": "/EMR/static/css/main.5aa9ebd1.chunk.css"
   },
   {
     "revision": "52c48bde7235e8f97921b111864b022a",
     "url": "/EMR/static/media/finalback.52c48bde.png"
   },
   {
-    "revision": "86186eed790ad703e863",
-    "url": "/EMR/static/js/1.86186eed.chunk.js"
+    "revision": "0f3e3c45e92225cf53d6",
+    "url": "/EMR/static/js/1.0f3e3c45.chunk.js"
   },
   {
     "revision": "d02e2d9c8d0de31bb889",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/ayo-ogunseinde-2.bfc688ca.jpg"
   },
   {
-    "revision": "11d2363e833f351de3ae",
-    "url": "/EMR/static/js/main.11d2363e.chunk.js"
+    "revision": "a6f08222b30780b5ac5e",
+    "url": "/EMR/static/js/main.a6f08222.chunk.js"
   },
   {
     "revision": "bb4b9ac9fd07e48f86c719495b65341c",
@@ -44,27 +44,27 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
+    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
+    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
     "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
     "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
-    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
-    "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
   },
   {
     "revision": "48ac036da7c7923266266f63746fc5f1",
     "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
   },
   {
-    "revision": "86186eed790ad703e863",
-    "url": "/EMR/static/css/1.bce20296.chunk.css"
+    "revision": "0f3e3c45e92225cf53d6",
+    "url": "/EMR/static/css/1.86ac9e0c.chunk.css"
   },
   {
-    "revision": "196143a3f77c0f0ae15faa20ca134edf",
+    "revision": "812749f152bbd026be1f6194a3dbdde3",
     "url": "/EMR/index.html"
   }
 ];
