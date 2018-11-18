@@ -125,3 +125,35 @@ padding-left: 3%;
 padding-top: 3%;
 font-family: 'PT Sans', sans-serif;
 }
+
+.cphelperMain{
+background: #f5f6fa;
+text-align: center;
+}
+
+.cphelperAfterMain{
+    margin: 0 auto;
+    padding-top: 1%;
+}
+
+.cpHospitalInput{
+    height: 3.5em;
+}
+
+.dz{
+   background-image: url(https://us.123rf.com/450wm/puruan/puruan1702/puruan170203578/71932854-cloud-upload-icon-in-flat-color-style-.jpg?ver=6);
+   height: 30vh;
+   background-repeat:no-repeat;
+   background-size:contain;
+   background-position:center;
+   cursor: pointer;
+}
+
+.cpHospitalText{
+font-size: 1.1em;
+background: white;
+}
+
+.crhosCenter{
+text-align: center;
+}
