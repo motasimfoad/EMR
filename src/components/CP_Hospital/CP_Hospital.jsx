@@ -13,11 +13,11 @@ import {
   Input
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
-// import gql from "graphql-tag";
+import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import ReactLoading from 'react-loading';
 import Footer from "../Footer/Footer.jsx";
-import { graphql, gql } from 'react-apollo';
+//import { graphql } from 'react-apollo';
 import Dropzone from 'react-dropzone';
 import {client} from "../../index";
 
@@ -25,14 +25,14 @@ class CP_Hospital extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      pname: '',
-      nid: '',
-      inputAddress: '',
-      phoneid: '',
-      inputDetails: '',
-      inputMed: ''
-};
+//     this.state = {
+//       pname: '',
+//       nid: '',
+//       inputAddress: '',
+//       phoneid: '',
+//       inputDetails: '',
+//       inputMed: ''
+// };
       //this.handleChange = this.handleChange.bind(this);
       this.back = this.back.bind(this);
       this.submit = this.submit.bind(this);
@@ -44,6 +44,7 @@ class CP_Hospital extends React.Component {
       }
       else {
           this.state = {
+            phoneid: '',
             hospitalId : this.props.history.location.state.logInfo[0],
             logInfoToken : this.props.history.location.state.logInfo[1],
             hospitalName : this.props.history.location.state.logInfo[2],
@@ -123,37 +124,37 @@ class CP_Hospital extends React.Component {
     })
   }
 
-  handlePost = async () => {
-    await client.mutate({
-      mutation: gql`
-         mutation createReport($imageID: String, $imageUrl: String,  $phoneid: String){
-          createReport(
-           imageid : $imageID ,
-           imageUrl : $imageUrl ,
-           phoneid : $phoneid
-        ) {
-          id
-          phoneid
-        }
-      }
-      `,
+//   handlePost = async () => {
+//     await client.mutate({
+//       mutation: gql`
+//          mutation createReport($imageID: String, $imageUrl: String,  $phoneid: String){
+//           createReport(
+//            imageid : $imageID ,
+//            imageUrl : $imageUrl ,
+//            phoneid : $phoneid
+//         ) {
+//           id
+//           phoneid
+//         }
+//       }
+//       `,
       
-      variables: {
-        imageID: this.state.nid,
-        imageUrl: this.state.imageUrl,
-        phoneid: this.state.phoneid
-      },
+//       variables: {
+//         imageID: this.state.nid,
+//         imageUrl: this.state.imageUrl,
+//         phoneid: this.state.phoneid
+//       },
   
-    })
-    .then(result => { 
-      alert(result.data.createReport.id)
-      console.log(result.data.createReport.phoneid);
+//     })
+//     .then(result => { 
+//       alert(result.data.createReport.id)
+//       console.log(result.data.createReport.phoneid);
       
-     })
-    .catch(error => { console.log(error)});
-}
+//      })
+//     .catch(error => { console.log(error)});
+// }
 
- async submit(){
+async submit(){
   await client.mutate({
     mutation: gql`
        mutation createReport($imageID: String, $imageUrl: String,  $phoneid: String){
@@ -164,6 +165,7 @@ class CP_Hospital extends React.Component {
       ) {
         id
         phoneid
+        imageUrl
       }
     }
     `,
@@ -178,10 +180,12 @@ class CP_Hospital extends React.Component {
   .then(result => { 
     alert(result.data.createReport.id)
     console.log(result.data.createReport.phoneid);
+    console.log(result.data.createReport.imageUrl);
+    
     
    })
   .catch(error => { console.log(error)});
-}
+};
 
 }
 
