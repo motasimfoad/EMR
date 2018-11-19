@@ -198,7 +198,7 @@ class SearchReport extends React.Component {
             <Button key={id+2} onClick={() => {this.toggle(id)}} color="primary">View</Button>
             <a key={id+4} href={imageUrl} target="_blank"><Button  color="primary">Download</Button></a>
             <Modal key={id+3} isOpen={this.state.modal && this.state.viewPresciptionId === id} toggle={this.toggle} >
-            <ModalHeader toggle={this.toggle}><p>Report of <b><i>{phoneid}</i></b></p></ModalHeader>
+            <ModalHeader toggle={this.toggle}><p>Report Registered using ID/Phone : <b><i>{phoneid}</i></b></p></ModalHeader>
             <ModalBody>
             <Table key={id+4} bordered>
   
