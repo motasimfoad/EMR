@@ -10,6 +10,7 @@ import UserDashboard from "../views/UserDashboard/UserDashboard.jsx";
 import UserPrescription from "../views/UserPrescription/UserPrescription.jsx";
 import HospitalDashboard from "../views/HospitalDashboard/HospitalDashboard.jsx";
 import CP_Hospital from "../components/CP_Hospital/CP_Hospital.jsx";
+import SearchReport from "../views/SearchReport/SearchReport.jsx"
 
 var indexRoutes = [
     {
@@ -66,6 +67,11 @@ var indexRoutes = [
         path: "/hospitaldashboard",
         name: "HospitalDashboard",
         component: HospitalDashboard
+    },
+    {
+        path: "/searchreport",
+        name: "SearchReport",
+        component: SearchReport
     },
     
     { path: "/", name: "Home", component: Dashboard },
