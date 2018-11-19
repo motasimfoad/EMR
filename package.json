@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://motasimfoad.github.io/EMR/",
   "dependencies": {
+    "@axetroy/react-download": "^1.1.1",
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
     "@types/react": "16.4.16",

@@ -26,6 +26,7 @@ import { withApollo } from 'react-apollo';
 import Footer from "../../components/Footer/Footer";
 
 
+
 class SearchReport extends React.Component {
 
   constructor(props) {
@@ -191,16 +192,22 @@ class SearchReport extends React.Component {
           <Card style={{width: '20rem'}}>
           <CardImg top src={imageUrl} alt="..."/>
           <CardBody>
-            <CardTitle>Doctor : {id}</CardTitle>
-            <CardText><b>Problem :</b> {imageid}</CardText>
-            <CardText><b>Date :</b> {createdAt}</CardText>
+            
+            <CardText><b>Report added using (id/phone):</b> {phoneid}</CardText> 
+            <CardText><b>Prescription Added :</b> {createdAt}</CardText>
             <Button key={id+2} onClick={() => {this.toggle(id)}} color="primary">View</Button>
+            <a key={id+4} href={imageUrl} target="_blank"><Button  color="primary">Download</Button></a>
             <Modal key={id+3} isOpen={this.state.modal && this.state.viewPresciptionId === id} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle}><p>Report of <b><i>{phoneid}</i></b></p></ModalHeader>
             <ModalBody>
             <Table key={id+4} bordered>
   
               <tbody>
+              <tr>
+              <td>
+              <img src={imageUrl} />
+              </td>
+              </tr>
               <tr>
               <td>
               Prescription Id : &nbsp; {id}
@@ -211,36 +218,14 @@ class SearchReport extends React.Component {
               Created at :  &nbsp; {createdAt}
               </td>
               </tr>
-              <tr>
-              <td>
-              Doctor :  &nbsp; {id}
-              </td>
-              </tr>
-              <tr>
-              <td>
-              DocID :  &nbsp; {id}
-               </td>
-              </tr>
+             
               <tr>
               <td>
               Paitent contact no :  &nbsp; {phoneid}
               </td>
               </tr>
-              <tr>
-              <td>
-              Chember :  &nbsp; {}
-              </td>
-              </tr>
-              <tr>
-              <td>
-              Details :  &nbsp; {}
-              </td>
-              </tr>
-              <tr>
-              <td>
-              Medicine :  &nbsp; {}
-              </td>
-              </tr>
+          
+          
               <tr>
               <td>
               Last Updated :  &nbsp; {updatedAt}
