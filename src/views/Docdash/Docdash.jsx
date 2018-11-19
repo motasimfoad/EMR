@@ -27,6 +27,7 @@ class Docdash extends React.Component {
     this.back = this.back.bind(this);
     this.search = this.search.bind(this);
     this.cp = this.cp.bind(this);
+    this.sr = this.sr.bind(this);
 
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
       this.props.history.push({
@@ -70,6 +71,18 @@ class Docdash extends React.Component {
     });
   }
 
+  sr() {
+    this.props.history.push({
+      pathname: '/searchreport',
+      state: { logInfo: [this.state.logInfoId, 
+        this.state.logInfoToken,
+        this.state.nid,
+        this.state.phone,
+        this.state.uname] }
+    });
+  }
+
+
 
 
   render() {
@@ -91,8 +104,9 @@ class Docdash extends React.Component {
       <Card >
         <CardImg top src="https://cdn.dribbble.com/users/77712/screenshots/1170246/flat_read.png" alt="..."/>
         <CardBody>
-            <CardTitle>Search Prescription</CardTitle>
-            <Button onClick={this.search} color="primary">Search</Button>
+        <CardTitle>Search Prescription/Report</CardTitle>
+            <Button onClick={this.search} color="primary">Prescription</Button>
+            <Button onClick={this.sr} color="primary">Report</Button>
         </CardBody>
       </Card>
       </Col>

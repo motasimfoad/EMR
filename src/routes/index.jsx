@@ -13,6 +13,7 @@ import CP_Hospital from "../components/CP_Hospital/CP_Hospital.jsx";
 import SearchReport from "../views/SearchReport/SearchReport.jsx";
 import CP_User from "../components/CP_User/CP_User.jsx";
 import UserReport from "../views/UserReport/UserReport.jsx";
+import SearchReportDoc from "../views/SearchReportDoc/SearchReportDoc.jsx"
 
 var indexRoutes = [
     {
@@ -84,6 +85,11 @@ var indexRoutes = [
         path: "/userreport",
         name: "UserReport",
         component: UserReport
+    },
+    {
+        path: "/searchreportdoc",
+        name: "SearchReportDoc",
+        component: SearchReportDoc
     },
     
     { path: "/", name: "Home", component: Dashboard },
