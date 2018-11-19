@@ -23,6 +23,7 @@ class UserDashboard extends React.Component {
     this.back = this.back.bind(this);
     this.search = this.search.bind(this);
     this.cp = this.cp.bind(this);
+    this.searchReport = this.searchReport.bind(this);
 
     if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
       this.props.history.push({
@@ -60,17 +61,30 @@ class UserDashboard extends React.Component {
 
   cp() {
     this.props.history.push({
-      pathname: '/cp_doc',
-      state: { logInfo: [this.state.logInfoId, 
+      pathname: '/cp_user',
+      state: { logInfo: [this.state.nid, 
         this.state.logInfoToken,
-        this.state.uname
+        this.state.uname,
+        this.state.phone
       ] }
     });
   }
 
-  search() {
+  
+ search() {
     this.props.history.push({
       pathname: '/userprescription',
+      state: { logInfo: [this.state.logInfoId, 
+        this.state.logInfoToken,
+        this.state.nid,
+        this.state.phone,
+        this.state.uname] }
+    });
+  }
+
+  searchReport() {
+    this.props.history.push({
+      pathname: '/userreport',
       state: { logInfo: [this.state.logInfoId, 
         this.state.logInfoToken,
         this.state.nid,
@@ -91,7 +105,8 @@ class UserDashboard extends React.Component {
       <Card >
         <CardImg top src="https://us.123rf.com/450wm/hilch/hilch1802/hilch180200503/94767811-date-and-time-calendar-and-add-event-thin-line-flat-color-icon-vector-illustration-pictogram-isolate.jpg?ver=6" alt="..."/>
         <CardBody>
-            <CardTitle>Add Prescription</CardTitle>
+            <CardTitle>Add Prescription / Report</CardTitle>
+            <pre>You will find this files under view report section</pre>
             <Button onClick={this.cp} color="primary">Add</Button>
         </CardBody>
       </Card>
@@ -100,8 +115,9 @@ class UserDashboard extends React.Component {
       <Card >
         <CardImg top src="https://cdn.dribbble.com/users/77712/screenshots/1170246/flat_read.png" alt="..."/>
         <CardBody>
-            <CardTitle>View Prescription</CardTitle>
-            <Button onClick={this.search} color="primary">View</Button>
+        <CardTitle>View Prescription/Report</CardTitle>
+            <Button onClick={this.search} color="primary">Prescription</Button>
+            <Button onClick={this.searchReport} color="primary">Report</Button>
         </CardBody>
       </Card>
       </Col>
