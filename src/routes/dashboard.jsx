@@ -1,9 +1,9 @@
 import Dashboard from "views/Dashboard/Dashboard.jsx";
 import UserPage from "views/UserPage/UserPage.jsx";
-import Auth from "views/Auth/Auth.jsx";
 import Prescription from "views/Prescription/Prescription.jsx";
 import Create_Prescription from "components/Prescription_Create/Prescription_Create.jsx";
 import Update_Prescription from "components/Prescription_Update/Prescription_Update.jsx";
+import CR_Admin from "../components/CR_Admin/CR_Admin.jsx"
 
 var dashRoutes = [
   {
@@ -14,7 +14,7 @@ var dashRoutes = [
   },
   {
     path: "/prescription",
-    name: "Presciption",
+    name: "List Presciption",
     icon: "nc-icon nc-paper",
     component: Prescription
   },
@@ -25,15 +25,22 @@ var dashRoutes = [
     component: Create_Prescription
   },
   {
-    path: "/user-page",
-    name: "User Profile",
+    path: "/list_users",
+    name: "List Users",
     icon: "nc-icon nc-single-02",
     component: UserPage
+  },
+  {
+    path: "/cr_admin",
+    name: "Create Report",
+    icon: "nc-icon nc-ruler-pencil",
+    component: CR_Admin
   },
   {
     path: "/up",
     component: Update_Prescription
   },
+  
   {
     pro: true,
     path: "/",
