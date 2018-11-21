@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2"
   },
   {
-    "revision": "83b5697b2a40bf02d9ab",
+    "revision": "65f9cebf643767fe727e",
     "url": "/EMR/static/css/main.c4973e6b.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/finalback.52c48bde.png"
   },
   {
-    "revision": "839566e3a4cf3c9321fc",
-    "url": "/EMR/static/js/1.839566e3.chunk.js"
+    "revision": "16540cf1fcddc2934db8",
+    "url": "/EMR/static/js/1.16540cf1.chunk.js"
   },
   {
     "revision": "d02e2d9c8d0de31bb889",
@@ -24,8 +24,12 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "83b5697b2a40bf02d9ab",
-    "url": "/EMR/static/js/main.83b5697b.chunk.js"
+    "revision": "65f9cebf643767fe727e",
+    "url": "/EMR/static/js/main.65f9cebf.chunk.js"
+  },
+  {
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
   },
   {
     "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
@@ -36,15 +40,11 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/nucleo-icons.48ac036d.ttf"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/EMR/static/media/nucleo-icons.6836b93b.woff"
-  },
-  {
-    "revision": "839566e3a4cf3c9321fc",
+    "revision": "16540cf1fcddc2934db8",
     "url": "/EMR/static/css/1.934b9362.chunk.css"
   },
   {
-    "revision": "2f0f222920d2bf821bfd59ecaa6db707",
+    "revision": "7e6609fb076747fa1bf6f0b1c7cbb94e",
     "url": "/EMR/index.html"
   }
 ];
