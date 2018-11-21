@@ -3,7 +3,8 @@ import UserPage from "views/UserPage/UserPage.jsx";
 import Prescription from "views/Prescription/Prescription.jsx";
 import Create_Prescription from "components/Prescription_Create/Prescription_Create.jsx";
 import Update_Prescription from "components/Prescription_Update/Prescription_Update.jsx";
-import CR_Admin from "../components/CR_Admin/CR_Admin.jsx"
+import CR_Admin from "../components/CR_Admin/CR_Admin.jsx";
+import Update_User_Admin from "components/Update_User_Admin/Update_User_Admin.jsx";
 
 var dashRoutes = [
   {
@@ -40,7 +41,10 @@ var dashRoutes = [
     path: "/up",
     component: Update_Prescription
   },
-  
+  {
+    path: "/uua",
+    component: Update_User_Admin
+  },
   {
     pro: true,
     path: "/",

@@ -59,7 +59,7 @@ const ListUser = (props) => (
             <CardText><b>User Type :</b> {utype}</CardText>
             <CardText><b>Created At :</b> {createdAt}</CardText>
             <Button key={id+2} onClick={() => {props.toggle(id)}} color="primary">View</Button>
-            {/* <Button color="default" onClick={() => {props.up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid)}}>Update</Button> */}
+            <Button color="default" onClick={() => {props.up(id, createdAt, updatedAt, phone, nid , name, utype, email)}}>Update</Button> 
             <Button color="danger" onClick={() => {props.preDelete(id)}}>Delete</Button>
             
             <Modal key={id+3} isOpen={props.state.modal && props.state.viewPresciptionId === id} toggle={props.toggle} >
@@ -146,13 +146,13 @@ class UserPage extends React.Component {
     });
   }
 
-  up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn , nid) {
+  up(id, createdAt, updatedAt, phone, nid , name, utype, email) {
     // this.setState({
     //   data
     // });
     this.props.history.push({
-      pathname: '/up',
-      state: { some: [id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid] }
+      pathname: '/uua',
+      state: { some: [id, createdAt, updatedAt, phone, nid , name, utype, email] }
     })
   }
 
