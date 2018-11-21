@@ -219,16 +219,7 @@ class Prescription extends React.Component {
   render() {
     return (
       <div className="content">
-      <Navbar expand="lg" color="dark">
-      <Form inline className="ml-auto">
-       <FormGroup className={"no-border"}>
-        <Input type="text" placeholder="Search"/>
-      </FormGroup>
-      <Button color="neutral" icon round>
-       <i className="nc-icon nc-zoom-split"></i>
-     </Button>
-      </Form>
-      </Navbar>
+     
       <div>
       <Row className="helper">
 

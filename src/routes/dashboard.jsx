@@ -1,6 +1,7 @@
 import Dashboard from "views/Dashboard/Dashboard.jsx";
 import UserPage from "views/UserPage/UserPage.jsx";
 import Prescription from "views/Prescription/Prescription.jsx";
+import Report from "views/Report/Report.jsx";
 import Create_Prescription from "components/Prescription_Create/Prescription_Create.jsx";
 import Update_Prescription from "components/Prescription_Update/Prescription_Update.jsx";
 import CR_Admin from "../components/CR_Admin/CR_Admin.jsx";
@@ -33,9 +34,15 @@ var dashRoutes = [
     component: UserPage
   },
   {
+    path: "/list_report",
+    name: "List Report",
+    icon: "nc-icon nc-bullet-list-67",
+    component: Report
+  },
+  {
     path: "/cr_admin",
     name: "Add Report",
-    icon: "nc-icon nc-ruler-pencil",
+    icon: "nc-icon nc-cloud-upload-94",
     component: CR_Admin
   },
   {
