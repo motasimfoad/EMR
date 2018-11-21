@@ -6,7 +6,8 @@ import Create_Prescription from "components/Prescription_Create/Prescription_Cre
 import Update_Prescription from "components/Prescription_Update/Prescription_Update.jsx";
 import CR_Admin from "../components/CR_Admin/CR_Admin.jsx";
 import Update_User_Admin from "components/Update_User_Admin/Update_User_Admin.jsx";
-import SearchReportAdmin from "../views/SearchReportAdmin/SearchReportAdmin.jsx"
+import SearchReportAdmin from "../views/SearchReportAdmin/SearchReportAdmin.jsx";
+import AdminSearch from "../views/AdminSearch/AdminSearch.jsx";
 
 var dashRoutes = [
   {
@@ -26,6 +27,12 @@ var dashRoutes = [
     name: "Create Prescription",
     icon: "nc-icon nc-ruler-pencil",
     component: Create_Prescription
+  },
+  {
+    path: "/sp_admin",
+    name: "Search Prescription",
+    icon: "nc-icon nc-zoom-split",
+    component: AdminSearch
   },
   {
     path: "/list_users",
