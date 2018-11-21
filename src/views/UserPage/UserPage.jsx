@@ -178,9 +178,9 @@ class UserPage extends React.Component {
     alert("Successfully Deleted")
     const obj = await client.mutate({
       mutation: gql`
-          mutation deletePrescription($id: ID!) {
-            deletePrescription(id: $id) {
-              owner
+          mutation deleteUser($id: ID!) {
+            deleteUser(id: $id) {
+              phone
               id
             }
           }
@@ -192,18 +192,16 @@ class UserPage extends React.Component {
       refetchQueries: [{
         query : gql`
       {
-      allPrescriptions{
-        id
-        docname
-        docid
-        details
-        createdAt
-        owner
-        chember
-        med
-        updatedAt
-        phn
-      }
+        allUsers{
+          name
+          id
+          phone
+          nid
+          utype
+          createdAt
+          updatedAt
+          email
+        }
     }
     `}] 
   });
