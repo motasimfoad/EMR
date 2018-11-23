@@ -36,6 +36,7 @@
     "fs-extra": "7.0.0",
     "gh-pages": "^2.0.1",
     "graphql": "^14.0.2",
+    "graphql-request": "^1.8.2",
     "history": "4.7.2",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
