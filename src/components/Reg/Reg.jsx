@@ -19,7 +19,15 @@ import { Mutation } from "react-apollo";
 import ReactLoading from 'react-loading';
 import { GraphQLClient } from 'graphql-request';
 
-const client = new GraphQLClient('https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73');
+const client = new GraphQLClient('https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73', {
+  variables : {
+    "email": "daab@a.b",
+"pass": "abc",
+"utype": "Patient",
+"name": "Dab Man"
+    
+  }
+});
 
 class Reg extends React.Component {
 
@@ -46,23 +54,25 @@ class Reg extends React.Component {
 
   reg() {
     return client.request(`
-      mutation{
-      createUser(
-        authProvider : {
-          email : {
-            email : "uidude@b.c"
-            password : "bcbc"
-          }
+     mutation{
+    createUser(
+      authProvider : {
+        email : {
+          email : $email
+          password : $pass
         }
-        nid : "420"
-        phone : "asdf"
-        utype : "Patient"
-      ){
-        id
       }
-      }
-    `)
-  }
+      nid : $nid
+      phone : $phone
+      utype : $utype 
+      name : $name
+    ){
+      id
+    }
+    }
+   },
+  `)
+}
 
   render() {
    return (
