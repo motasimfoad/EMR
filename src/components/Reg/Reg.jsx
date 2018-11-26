@@ -20,13 +20,9 @@ import ReactLoading from 'react-loading';
 import { GraphQLClient } from 'graphql-request';
 
 const client = new GraphQLClient('https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73', {
-  variables : {
-    "email": "daab@a.b",
-"pass": "abc",
-"utype": "Patient",
-"name": "Dab Man"
-    
-  }
+ headers : {
+
+ }
 });
 
 class Reg extends React.Component {
@@ -41,7 +37,8 @@ class Reg extends React.Component {
       // nid: props.history.location.state.some[4],
       // name: props.history.location.state.some[5],
       // utype: props.history.location.state.some[6],
-      // email: props.history.location.state.some[7],
+       email: "rid@wan.com",
+       password : "llalal"
       
 };
       this.handleChange = this.handleChange.bind(this);
@@ -53,26 +50,33 @@ class Reg extends React.Component {
   }
 
   reg() {
+    const email = this.state.email
+    const pass = this.state.password 
+
     return client.request(`
-     mutation{
-    createUser(
-      authProvider : {
-        email : {
-          email : $email
-          password : $pass
+     mutation(
+       $email : String!
+       $pass : String!
+     ){
+      createUser(
+        authProvider : {
+          email : {
+            email : $email
+            password : $pass
+          }
         }
+        
+      ){
+        id
       }
-      nid : $nid
-      phone : $phone
-      utype : $utype 
-      name : $name
-    ){
-      id
     }
-    }
-   },
-  `)
-}
+   
+  `,
+  {
+    email ,
+    pass 
+  })
+ }
 
   render() {
    return (
