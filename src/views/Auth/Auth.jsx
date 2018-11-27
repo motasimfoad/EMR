@@ -282,7 +282,7 @@ reg() {
           <FormGroup className="col-md-6">
             <Label for="inputState">User Type</Label>
             <Input type="select" name="select" id="regType" onChange={this.handleChange}>
-              <option>...</option>
+              <option>Please Select</option>
               <option>Patient</option>
               <option>Doctor</option>
               <option>Pharmacy</option>
