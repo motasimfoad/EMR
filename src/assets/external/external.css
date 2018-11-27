@@ -95,11 +95,11 @@ text-align: center;
 }
 
 .ddcenterbuttongroup{
-background: gray;
-padding-top: 2%;
-padding-bottom:1%;
-padding-left: 1%;
-padding-right: 1%; 
+    background: gray;
+    padding-top: 2%;
+    padding-bottom:1%;
+    padding-left: 1%;
+    padding-right: 1%; 
 }
 
 .searchbar{
@@ -121,14 +121,14 @@ padding-right: 1%;
 }
 
 .mainAuthLogo{
-padding-left: 3%;
-padding-top: 3%;
-font-family: 'PT Sans', sans-serif;
+    padding-left: 3%;
+    padding-top: 3%;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .cphelperMain{
-background: #f5f6fa;
-text-align: center;
+    background: #f5f6fa;
+    text-align: center;
 }
 
 .cphelperAfterMain{
@@ -150,10 +150,10 @@ text-align: center;
 }
 
 .cpHospitalText{
-font-size: 1.1em;
-background: white;
+    font-size: 1.1em;
+    background: white;
 }
 
 .crhosCenter{
-text-align: center;
+    ext-align: center;
 }

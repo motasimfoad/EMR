@@ -59,6 +59,11 @@ var dashRoutes = [
     component: SearchReportAdmin
   },
   {
+    path: "/auth",
+    name: "Log Out",
+    icon: "nc-icon nc-spaceship"
+  },
+  {
     path: "/up",
     component: Update_Prescription
   },
@@ -66,13 +71,8 @@ var dashRoutes = [
     path: "/uua",
     component: Update_User_Admin
   },
-  {
-    pro: true,
-    path: "/",
-    name: "Log Out",
-    icon: "nc-icon nc-spaceship"
-  },
+  
   { redirect: true, path: "/", pathTo: "/auth", name: "Auth" },
-  //{ redirect: true, path: "/Auth", pathTo: "/Auth", name: "Auth" }
+  
 ];
 export default dashRoutes;

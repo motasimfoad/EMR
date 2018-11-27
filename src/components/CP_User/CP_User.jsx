@@ -1,25 +1,17 @@
 import React from "react";
 import {
-  Card,
-  CardBody,
-  CardImg,
-  CardText,
-  CardTitle,
-  CardHeader,
-  Row,
-  Col,
-  FormGroup,
-  Label, Modal, ModalHeader, ModalBody, ModalFooter ,
+  Modal, 
+  ModalHeader,
+  ModalBody, 
+  ModalFooter,
   Input
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
 import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
-import ReactLoading from 'react-loading';
 import Footer from "../Footer/Footer.jsx";
 import Dropzone from 'react-dropzone';
 import {client} from "../../index";
-import Loader from 'react-loader-spinner'
+
 
 class CP_User extends React.Component {
 
@@ -124,13 +116,8 @@ class CP_User extends React.Component {
         <Button color="danger" onClick={this.lo}>Logout</Button>
       </ModalFooter>
     </Modal>
-  
-        
-        </div>
-      
-
-      
-< Footer />
+    </div>
+  < Footer />
     </div>
     );
     
@@ -182,13 +169,7 @@ async submit(){
   .then(result => {
     this.toggle();
   } 
-    
-
-
-   
-    
-    
-   )
+    )
   .catch(error => { console.log(error)});
 };
 

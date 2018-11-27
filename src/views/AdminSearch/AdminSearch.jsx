@@ -49,24 +49,6 @@ class AdminSearch extends React.Component {
     this.back = this.back.bind(this);
     this.delete = this.delete.bind(this);
     this.preDelete = this.preDelete.bind(this);
-
-  //   if (typeof(props.history.location.state) == 'undefined' || props.history.location.state == null) {
-  //     this.props.history.push({
-  //       pathname: '/unauth',
-  //     });
-  //   }
-  //   else {
-  //     this.state = {
-  //       drid : this.props.history.location.state.logInfo[1],
-  //     logInfoToken : this.props.history.location.state.logInfo[0],
-  //     docname : this.props.history.location.state.logInfo[2],
-  //     text: '', 
-  //   inputText: '', 
-  //   mode:'view',
-  //   result : []
-  //   }
-  //     console.log(this.state.docname);
-  // }
   }
   
 
@@ -97,7 +79,7 @@ class AdminSearch extends React.Component {
 
   async delete(viewPresciptionId){
     alert("Successfully Deleted")
-    const obj = await client.mutate({
+     await client.mutate({
       mutation: gql`
           mutation deletePrescription($id: ID!) {
             deletePrescription(id: $id) {
@@ -131,9 +113,6 @@ class AdminSearch extends React.Component {
 }
 
   up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn , nid) {
-    // this.setState({
-    //   data
-    // });
     this.props.history.push({
       pathname: '/up',
       state: { some: [id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid] 
