@@ -8,6 +8,7 @@ import CR_Admin from "../components/CR_Admin/CR_Admin.jsx";
 import Update_User_Admin from "components/Update_User_Admin/Update_User_Admin.jsx";
 import SearchReportAdmin from "../views/SearchReportAdmin/SearchReportAdmin.jsx";
 import AdminSearch from "../views/AdminSearch/AdminSearch.jsx";
+import AdminSearchUser from "../views/AdminSearchUser/AdminSearchUser.jsx";
 
 var dashRoutes = [
   {
@@ -39,6 +40,12 @@ var dashRoutes = [
     name: "List Users",
     icon: "nc-icon nc-single-02",
     component: UserPage
+  },
+  {
+    path: "/s_u",
+    name: "Search User",
+    icon: "nc-icon nc-zoom-split",
+    component: AdminSearchUser
   },
   {
     path: "/list_report",

@@ -15,7 +15,13 @@ import {
 import classnames from 'classnames';
 import {client} from "../../index";
 import gql from "graphql-tag";
+import { GraphQLClient } from 'graphql-request';
 
+const Client = new GraphQLClient('https://api.graph.cool/simple/v1/cjnaaji6g014p0127lqfjvz73', {
+ headers : {
+
+ }
+});
 
 class Auth extends React.Component {
 
@@ -38,7 +44,8 @@ class Auth extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
-    this.register = this.register.bind(this);
+    
+    this.reg = this.reg.bind(this);
   }
 
   handleChange(evt) {
@@ -119,47 +126,70 @@ class Auth extends React.Component {
                         result.data.signinUser.user.name] }
         });
       }
-      else {
+       else if(result.data.signinUser.user.utype === "Admin") {
         this.props.history.push({
           pathname: '/dashboard',
           state: { logInfo: [result.data.signinUser.token, 
-                          result.data.signinUser.user.id] }
+                          result.data.signinUser.user.id,
+                          result.data.signinUser.user.phone,
+                          result.data.signinUser.user.nid,
+                        result.data.signinUser.user.name] }
         });
       }
      })
     .catch(error => { alert("Incorrect username or password") });
  }
 
- async register(){
-  await client.mutate({
-    mutation: gql`
-       mutation createUser($email: String!, $password: String!){
-        createUser(
-          authProvider : {
-            email: { 
-              email: $email, 
-              password: $password 
-              }
-          }
-      ) {
-        id
-      }
-    }
-    `,
-    
-    variables: {
-      email: this.state.regEmail,
-      password: this.state.regPass
-    },
 
-  })
-  .then(result => { this.props.history.push({
-    pathname: '/dashboard',
-    state: { logInfo: [result.data.signinUser.token, 
-                    result.data.signinUser.user.id] }
-  });
-   })
-  .catch(error => { console.log(error)});
+
+reg() {
+  const email = this.state.regEmail
+  const pass = this.state.regPass 
+  const nid = this.state.regId
+  const phone = this.state.regPhn
+  const utype = this.state.regType
+  const name = this.state.regName
+
+  return Client.request(`
+   mutation(
+     $email : String!
+     $pass : String!
+     $nid : String
+     $phone : String
+     $utype : String
+     $name : String
+   ){
+    createUser(
+      authProvider : {
+        email : {
+          email : $email
+          password : $pass
+        }
+      }
+      nid : $nid
+      phone : $phone
+      utype : $utype 
+      name : $name
+    ){
+      id
+    }
+  }
+ 
+`,
+{
+  email,
+  pass ,
+  nid,
+  phone,
+  utype,
+  name
+})
+.then(result => { 
+  alert("User registered successfully")
+  
+
+})
+.catch(error => { alert("Email Id is already registered") })
 }
 
 
@@ -252,7 +282,7 @@ class Auth extends React.Component {
           <FormGroup className="col-md-6">
             <Label for="inputState">User Type</Label>
             <Input type="select" name="select" id="regType" onChange={this.handleChange}>
-              <option>Select Type</option>
+              <option>Please Select</option>
               <option>Patient</option>
               <option>Doctor</option>
               <option>Pharmacy</option>
@@ -262,9 +292,9 @@ class Auth extends React.Component {
          
         </div>
         
-        <Button type="submit" color="primary" onClick={this.register}>Register</Button>
+       
       </form>
-
+      <Button type="submit" color="primary" onClick={this.reg}>Register</Button>
           </TabPane>
         </TabContent>
       </div>
