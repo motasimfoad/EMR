@@ -291,9 +291,7 @@ reg() {
           </FormGroup>
          
         </div>
-        
-       
-      </form>
+        </form>
       <Button type="submit" color="primary" onClick={this.reg}>Register</Button>
           </TabPane>
         </TabContent>
@@ -301,9 +299,7 @@ reg() {
       
       </div>
       </div>
-     
-     
-    );
+     );
   }
   
 }

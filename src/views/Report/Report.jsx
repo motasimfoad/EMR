@@ -4,17 +4,12 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardTitle,
   Row,
   Col,
-  Navbar,
-  Form, 
   Modal, 
   ModalHeader, 
   ModalBody, 
   ModalFooter,
-  FormGroup,
-  Input,
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
@@ -131,9 +126,7 @@ class Report extends React.Component {
   }
 
   up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn , nid) {
-    // this.setState({
-    //   data
-    // });
+   
     this.props.history.push({
       pathname: '/up',
       state: { some: [id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid] }
@@ -160,7 +153,7 @@ class Report extends React.Component {
 
   async delete(viewPresciptionId){
     alert("Successfully Deleted")
-    const obj = await client.mutate({
+    await client.mutate({
       mutation: gql`
           mutation deleteReport($id: ID!) {
             deleteReport(id: $id) {

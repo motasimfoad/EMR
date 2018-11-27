@@ -4,7 +4,6 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardTitle,
   Row,
   Col,
   Navbar,

@@ -30,13 +30,6 @@ class Docsearch extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   text: '', 
-    //   inputText: '', 
-    //   mode:'view',
-    //   result : []
-    // };
-    
     this.handleChange = this.handleChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -61,8 +54,7 @@ class Docsearch extends React.Component {
     mode:'view',
     result : []
     }
-      console.log(this.state.docname);
-  }
+   }
   }
   
 
@@ -74,9 +66,7 @@ class Docsearch extends React.Component {
   }
 
   up(id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn , nid) {
-    // this.setState({
-    //   data
-    // });
+    
     this.props.history.push({
       pathname: '/doc_prescription_update',
       state: { some: [id , docname, details, createdAt, owner, docid, chember, med, updatedAt, phn, nid] , 

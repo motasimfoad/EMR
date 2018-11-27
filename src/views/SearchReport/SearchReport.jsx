@@ -4,7 +4,6 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardTitle,
   Row,
   Col,
   Navbar,
@@ -146,18 +145,18 @@ class SearchReport extends React.Component {
       return (
 
         <div className="content">
-      <Navbar expand="lg" color="dark">
-      <Form inline className="ml-auto">
-       <FormGroup >
-        <Input type="text" placeholder="Search" id="searchText" onChange={this.handleChange}/>
-      </FormGroup>
-      <Button  color="neutral" icon round onClick={this.display}>
-       <i className="nc-icon nc-zoom-split"></i>
-     </Button>
-      </Form>
-      </Navbar>
-      <div>
-      <Row>
+        <Navbar expand="lg" color="dark">
+        <Form inline className="ml-auto">
+        <FormGroup >
+          <Input type="text" placeholder="Search" id="searchText" onChange={this.handleChange}/>
+        </FormGroup>
+        <Button  color="neutral" icon round onClick={this.display}>
+        <i className="nc-icon nc-zoom-split"></i>
+        </Button>
+        </Form>
+        </Navbar>
+        <div>
+        <Row>
 
       {this.state.result.data.allReports.length === 0 &&
         <div className="searchCenter">

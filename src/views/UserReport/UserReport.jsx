@@ -4,25 +4,19 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardTitle,
   Row,
   Col,
   Navbar,
-  Form, 
   Modal, 
   ModalHeader, 
   ModalBody, 
   ModalFooter,
-  FormGroup,
-  Input,
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import ReactLoading from 'react-loading';
-import {client} from "../../index";
-import { confirmAlert } from "react-confirm-alert"; 
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const ListUser = (props) => (
@@ -149,15 +143,6 @@ class UserReport extends React.Component {
         uname : this.props.history.location.state.logInfo[4],
         
       }
-        console.log(this.state.logInfoId);
-        console.log(this.state.logInfoToken);
-        console.log(this.state.uname);
-        console.log(this.state.nid);
-        console.log(this.state.phone);
-        
-        
-        
-        
     }
 
   }

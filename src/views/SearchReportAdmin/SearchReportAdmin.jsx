@@ -4,7 +4,6 @@ import {
   CardBody,
   CardImg,
   CardText,
-  CardTitle,
   Row,
   Col,
   Navbar,
@@ -88,7 +87,7 @@ class SearchReportAdmin extends React.Component {
 
   async delete(viewPresciptionId){
     alert("Successfully Deleted")
-    const obj = await client.mutate({
+    await client.mutate({
       mutation: gql`
           mutation deleteReport($id: ID!) {
             deleteReport(id: $id) {

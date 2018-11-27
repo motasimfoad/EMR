@@ -7,14 +7,10 @@ import {
   CardTitle,
   Row,
   Col,
-  Navbar,
-  Form, 
   Modal, 
   ModalHeader, 
   ModalBody, 
   ModalFooter,
-  FormGroup,
-  Input,
   Table
  } from "reactstrap";
 import Button from "components/CustomButton/CustomButton.jsx";
@@ -147,9 +143,6 @@ class UserPage extends React.Component {
   }
 
   up(id, createdAt, updatedAt, phone, nid , name, utype, email) {
-    // this.setState({
-    //   data
-    // });
     this.props.history.push({
       pathname: '/uua',
       state: { some: [id, createdAt, updatedAt, phone, nid , name, utype, email] }
@@ -176,7 +169,7 @@ class UserPage extends React.Component {
 
   async delete(viewPresciptionId){
     alert("Successfully Deleted")
-    const obj = await client.mutate({
+    await client.mutate({
       mutation: gql`
           mutation deleteUser($id: ID!) {
             deleteUser(id: $id) {
