@@ -43,11 +43,11 @@ const dashboard24HoursPerformanceChart = {
   },
   options: {
     legend: {
-      display: false
+      display: true
     },
 
     tooltips: {
-      enabled: false
+      enabled: true
     },
 
     scales: {
@@ -87,9 +87,10 @@ const dashboard24HoursPerformanceChart = {
 };
 
 const dashboardEmailStatisticsChart = {
+
   data: canvas => {
     return {
-      labels: [1, 2, 3],
+      labels: [1, 2, 3, 4],
       datasets: [
         {
           label: "Emails",
@@ -97,14 +98,14 @@ const dashboardEmailStatisticsChart = {
           pointHoverRadius: 0,
           backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157"],
           borderWidth: 0,
-          data: [342, 480, 530, 120]
+          data: [40, 20, 30, 10]
         }
       ]
     };
   },
   options: {
     legend: {
-      display: false
+      display: true
     },
 
     pieceLabel: {
@@ -114,7 +115,7 @@ const dashboardEmailStatisticsChart = {
     },
 
     tooltips: {
-      enabled: false
+      enabled: true
     },
 
     scales: {
