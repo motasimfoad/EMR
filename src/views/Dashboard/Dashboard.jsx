@@ -9,17 +9,12 @@ import {
   Col
 } from "reactstrap";
 // react plugin used to create charts
-import { Line, Pie } from "react-chartjs-2";
+import {  Pie,  Bar } from "react-chartjs-2";
 // function that returns a color based on an interval of numbers
 
 import Stats from "components/Stats/Stats.jsx";
 import {client} from "../../index";
 
-import {
-  dashboard24HoursPerformanceChart,
- 
-  dashboardNASDAQChart
-} from "variables/charts.jsx";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
@@ -41,10 +36,10 @@ const REP_COUNT = gql`
 
 const PRES_COUNT = gql`
  {
-    prescriptionCount: _allPrescriptionsMeta {
-    count
-  }
-    }
+        prescriptionCount: _allPrescriptionsMeta {
+        count
+      }
+   }
 `;
 
 class Dashboard extends React.Component  {
@@ -60,7 +55,13 @@ class Dashboard extends React.Component  {
       this.state = {
         logInfoId : this.props.history.location.state.logInfo[1],
         logInfoToken : this.props.history.location.state.logInfo[0],
-         lo : ''
+        patient : '',
+        doctor : '',
+        pharmacy : '',
+        hospital : '',
+        admin : '',
+        rep : '',
+        pres : ''
       }
     }
 }
@@ -82,28 +83,171 @@ componentDidMount() {
   })
   .then(result => { 
     this.setState({
-      lo: result.data.userCount.count
+      patient: result.data.userCount.count
     });
 })
   .catch(error => { console.log(error) });
+
+   client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta(
+          filter : {
+            utype : "Doctor"
+          }
+        ) {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      doctor : result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+ client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta(
+          filter : {
+            utype : "Hospital"
+          }
+        ) {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      hospital : result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+ client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta(
+          filter : {
+            utype : "Pharmacy"
+          }
+        ) {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      pharmacy : result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+ client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta(
+          filter : {
+            utype : "Admin"
+          }
+        ) {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      admin : result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+client.query({
+    query: gql`
+      {
+      reportCount: _allReportsMeta {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      rep : result.data.reportCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+       {
+        prescriptionCount: _allPrescriptionsMeta {
+        count
+      }
+   }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      pres : result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
 }
 
   
   render() {
+
+    const preVsRep = {
+      data: canvas => {
+        return {
+          labels: ["Report", "Prescription"],
+          datasets: [
+            {
+              backgroundColor: ["#2ecc71", "#ef8157"],
+              data: [this.state.rep, this.state.pres]
+            }
+          ],
+          options: {
+              scales: {
+                  xAxes: [{
+                      stacked: true,
+                  }],
+                  yAxes: [{
+                      stacked: true
+                  }]
+              }
+          }
+        };
+      },
+    };
   
     const dashboardEmailStatisticsChart = {
 
       data: canvas => {
         return {
-          labels: [1, 2, 3, 4],
+          labels: ["Patient", "Doctor", "Hospital", "Pharmacy", "Admin"],
           datasets: [
             {
-              label: "Emails",
+              label: "Users Record (Role Based)",
               pointRadius: 0,
               pointHoverRadius: 0,
-              backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157"],
+              backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157", "#2ecc71"],
               borderWidth: 0,
-              data: [this.state.lo, 20, 30, 10]
+              data: [this.state.patient, this.state.doctor, this.state.hospital, this.state.pharmacy, this.state.admin]
             }
           ]
         };
@@ -312,98 +456,59 @@ componentDidMount() {
             </Card>
           </Col>
         </Row>
-        {/* <Row>
-          <Col xs={12}>
-            <Card>
-              <CardHeader>
-                <CardTitle>Users Behavior</CardTitle>
-                <p className="card-category">24 Hours performance</p>
-              </CardHeader>
-              <CardBody>
-                <Line
-                  data={dashboard24HoursPerformanceChart.data}
-                  options={dashboard24HoursPerformanceChart.options}
-                  width={400}
-                  height={100}
-                />
-              </CardBody>
-              <CardFooter>
-                <hr />
-                <Stats>
-                  {[
-                    {
-                      i: "fas fa-history",
-                      t: " Updated 3 minutes ago"
-                    }
-                  ]}
-                </Stats>
-              </CardFooter>
-            </Card>
-          </Col>
-        </Row> */}
         <Row>
-          <Col xs={12} sm={12} md={4}>
+          <Col xs={12}  >
             <Card>
               <CardHeader>
-                <CardTitle>Email Statistics</CardTitle>
-                <p className="card-category">Last Campaign Performance</p>
+                <CardTitle>User Statistics</CardTitle>
+                <p className="card-category">Data showing from your last login</p>
               </CardHeader>
               <CardBody>
                 <Pie
                   data={dashboardEmailStatisticsChart.data}
                   options={dashboardEmailStatisticsChart.options}
+                  height = {80}
                 />
               </CardBody>
               <CardFooter>
                 <div className="legend">
-                  <i className="fa fa-circle text-primary" /> Opened{" "}
-                  <i className="fa fa-circle text-warning" /> Read{" "}
-                  <i className="fa fa-circle text-danger" /> Deleted{" "}
-                  <i className="fa fa-circle text-gray" /> Unopened
+                  <i className="fa fa-circle text-gray" /> Patient{" "}
+                  <i className="fa fa-circle text-primary" /> Doctor{" "}
+                  <i className="fa fa-circle text-warning" /> Hospital{" "}
+                  <i className="fa fa-circle text-danger" /> Pharmacy{" "}
+                  <i className="fa fa-circle text-success" /> Admin{" "}
                 </div>
                 <hr />
                 <Stats>
                   {[
                     {
                       i: "fas fa-calendar-alt",
-                      t: " Number of emails sent"
+                      t: " Number of users"
                     }
                   ]}
                 </Stats>
               </CardFooter>
             </Card>
           </Col>
-          <Col xs={12} sm={12} md={8}>
-            <Card className="card-chart">
+          <Col xs={12}>
+            <Card>
               <CardHeader>
-                <CardTitle>NASDAQ: AAPL</CardTitle>
-                <p className="card-category">Line Chart With Points</p>
+                <CardTitle>Report Vs Prescription Comparison</CardTitle>
+                <p className="card-category"> Data showing from your last login</p>
               </CardHeader>
               <CardBody>
-                <Line
-                  data={dashboardNASDAQChart.data}
-                  options={dashboardNASDAQChart.options}
-                  width={400}
-                  height={100}
-                />
+                <Bar data={preVsRep.data} options={{
+		maintainAspectRatio: false
+	}} type='bar' height={200}/>
               </CardBody>
               <CardFooter>
-                <div className="chart-legend">
-                  <i className="fa fa-circle text-info" /> Tesla Model S{" "}
-                  <i className="fa fa-circle text-warning" /> BMW 5 Series
-                </div>
-                <hr />
-                <Stats>
-                  {[
-                    {
-                      i: "fas fa-check",
-                      t: " Data information certified"
-                    }
-                  ]}
-                </Stats>
               </CardFooter>
             </Card>
           </Col>
+        </Row>
+        <Row>
+        
+          
          </Row>
       </div>
     );
