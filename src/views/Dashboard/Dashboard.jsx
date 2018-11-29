@@ -9,12 +9,12 @@ import {
   Col
 } from "reactstrap";
 // react plugin used to create charts
-import {  Pie,  Bar } from "react-chartjs-2";
+import { Doughnut, Pie,  Bar, Line } from "react-chartjs-2";
 // function that returns a color based on an interval of numbers
 
 import Stats from "components/Stats/Stats.jsx";
 import {client} from "../../index";
-
+//import dashboardNASDAQChart from "../../variables/charts";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
@@ -55,18 +55,193 @@ class Dashboard extends React.Component  {
       this.state = {
         logInfoId : this.props.history.location.state.logInfo[1],
         logInfoToken : this.props.history.location.state.logInfo[0],
+        //Counter
         patient : '',
         doctor : '',
         pharmacy : '',
         hospital : '',
         admin : '',
         rep : '',
-        pres : ''
+        pres : '',
+        user : '',
+        //Deseases
+        fever : '', 
+        typhoid : '', 
+        pneumonia : '', 
+        malaria : '', 
+        diarrhoea : '', 
+        diabetes : '', 
+        cancer : ''
       }
     }
 }
 
 componentDidMount() {
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "typhoid"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      fever: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "fever"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      typhoid: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "pneumonia"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      pneumonia: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "malaria"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      malaria: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "diarrhoea"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      diarrhoea: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "diabetes"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      diabetes: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+      {
+      prescriptionCount: _allPrescriptionsMeta(
+         filter : {
+          details_contains : "cancer"
+        }
+      ) {
+        count
+      }
+    }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      cancer: result.data.prescriptionCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
+  client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      user: result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+
   client.query({
     query: gql`
        {
@@ -211,14 +386,14 @@ client.query({
   
   render() {
 
-    const preVsRep = {
+   const preVsRep = {
       data: canvas => {
         return {
-          labels: ["Report", "Prescription"],
+          labels: ["Report", "Prescription", "User"],
           datasets: [
             {
-              backgroundColor: ["#2ecc71", "#ef8157"],
-              data: [this.state.rep, this.state.pres]
+              backgroundColor: ["#2ecc71", "#ef8157", "#fcc468"],
+              data: [this.state.rep, this.state.pres, this.state.user]
             }
           ],
           options: {
@@ -234,9 +409,43 @@ client.query({
         };
       },
     };
+
+    const graph = {
+      data: canvas => {
+        return {
+          labels: ["","Fever", "Typhoid", "Pneumonia" , "Malaria", "Diarrhoea", "Diabetes", "Cancer", ""],
+          datasets: [
+            { label: 'No of affected patients',
+              backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157", "#2ecc71", "#badc58", "#e056fd", "#eb4d4b"],
+              data: [0, this.state.fever, this.state.typhoid, this.state.pneumonia, this.state.malaria, this.state.diarrhoea, this.state.diabetes, this.state.cancer, 0]
+            }
+          ],
+          options: {
+            scales: {
+              xAxes: [{
+                stacked: false,
+                gridLines: {
+                  offsetGridLines: false
+              },
+              ticks: {
+                beginAtZero: false
+            },
+            maintainAspectRatio: false
+            }],
+              yAxes: [{
+                stacked: false,
+                  ticks: {
+                      beginAtZero: false
+                  },
+                  maintainAspectRatio: false
+              }]
+          }
+          }
+        };
+      },
+    };
   
     const dashboardEmailStatisticsChart = {
-
       data: canvas => {
         return {
           labels: ["Patient", "Doctor", "Hospital", "Pharmacy", "Admin"],
@@ -457,7 +666,7 @@ client.query({
           </Col>
         </Row>
         <Row>
-          <Col xs={12}  >
+          <Col xs={12} sm={12}  md={6}>
             <Card>
               <CardHeader>
                 <CardTitle>User Statistics</CardTitle>
@@ -467,7 +676,7 @@ client.query({
                 <Pie
                   data={dashboardEmailStatisticsChart.data}
                   options={dashboardEmailStatisticsChart.options}
-                  height = {80}
+                 
                 />
               </CardBody>
               <CardFooter>
@@ -483,31 +692,61 @@ client.query({
                   {[
                     {
                       i: "fas fa-calendar-alt",
-                      t: " Number of users"
+                      t: " Number of users based on user type"
                     }
                   ]}
                 </Stats>
               </CardFooter>
             </Card>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={6}>
+          <Card>
+              <CardHeader>
+                <CardTitle>Data Server Statistics</CardTitle>
+                <p className="card-category">Data showing from your last login</p>
+              </CardHeader>
+              <CardBody>
+              <Doughnut
+                  data={preVsRep.data}
+                  options={preVsRep.options}
+                 
+                />
+              </CardBody>
+              <CardFooter>
+                <div className="legend">
+                  
+                  <i className="fa fa-circle text-warning" /> User{" "}
+                  <i className="fa fa-circle text-danger" /> Prescription{" "}
+                  <i className="fa fa-circle text-success" /> Report{" "}
+                </div>
+                <hr />
+                <Stats>
+                  {[
+                    {
+                      i: "fas fa-calendar-alt",
+                      t: " Number of users, prescriptions, reports in our server"
+                    }
+                  ]}
+                </Stats>
+              </CardFooter>
+            </Card>
+            </Col>
+         
+        </Row>
+        <Row>
+        <Col xs={12} md={12} sm={6}>
             <Card>
               <CardHeader>
-                <CardTitle>Report Vs Prescription Comparison</CardTitle>
+                <CardTitle>Disease graph</CardTitle>
                 <p className="card-category"> Data showing from your last login</p>
               </CardHeader>
               <CardBody>
-                <Bar data={preVsRep.data} options={{
-		maintainAspectRatio: false
-	}} type='bar' height={200}/>
+                <Bar data={graph.data}  options={graph.options}  height = {80}/>
               </CardBody>
               <CardFooter>
               </CardFooter>
             </Card>
           </Col>
-        </Row>
-        <Row>
-        
           
          </Row>
       </div>

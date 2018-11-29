@@ -100,7 +100,7 @@ class Prescription_Create extends React.Component {
           Health Issues : <b>{data.createPrescription.details}</b>< br />
           Paitent Contact No : <b>{data.createPrescription.phn}</b>< br />
           </CardText>
-          <Button href="/cp">Back</Button>
+          
         </Card>
        </div> ;
       if (error) return <p>Error :(</p>;
