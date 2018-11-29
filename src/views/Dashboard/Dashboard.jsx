@@ -13,10 +13,11 @@ import { Line, Pie } from "react-chartjs-2";
 // function that returns a color based on an interval of numbers
 
 import Stats from "components/Stats/Stats.jsx";
+import {client} from "../../index";
 
 import {
   dashboard24HoursPerformanceChart,
-  dashboardEmailStatisticsChart,
+ 
   dashboardNASDAQChart
 } from "variables/charts.jsx";
 import gql from "graphql-tag";
@@ -59,89 +60,100 @@ class Dashboard extends React.Component  {
       this.state = {
         logInfoId : this.props.history.location.state.logInfo[1],
         logInfoToken : this.props.history.location.state.logInfo[0],
-         lo : '50'
+         lo : ''
       }
     }
 }
+
+componentDidMount() {
+  client.query({
+    query: gql`
+       {
+        userCount: _allUsersMeta(
+          filter : {
+            utype : "Patient"
+          }
+        ) {
+          count
+        }
+      }
+    `,
+    
+  })
+  .then(result => { 
+    this.setState({
+      lo: result.data.userCount.count
+    });
+})
+  .catch(error => { console.log(error) });
+}
+
   
   render() {
   
-    const chartColor = '#FFFFFF';
+    const dashboardEmailStatisticsChart = {
 
-      const data = (canvas) => {
-          var ctx = canvas.getContext("2d");
-
-          var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-          gradientStroke.addColorStop(0, '#80b6f4');
-          gradientStroke.addColorStop(1, chartColor);
-
-          var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-          gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-          gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
-          return {
-              labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-              datasets: [{
-                  label: "Active Users",
-                  borderColor: "#f96332",
-                  pointBorderColor: "#FFF",
-                  pointBackgroundColor: "#f96332",
-                  pointBorderWidth: 2,
-                  pointHoverRadius: 4,
-                  pointHoverBorderWidth: 1,
-                  pointRadius: 4,
-                  fill: true,
-                  backgroundColor: gradientFill,
-                  borderWidth: 2,
-                  data: [this.state.lo, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
-              }]
-          }
-      };
-      const options = {
-          maintainAspectRatio: false,
-          legend: {
-              display: false
-          },
-          tooltips: {
-              bodySpacing: 4,
-              mode:"nearest",
-              intersect: 0,
-              position:"nearest",
-              xPadding:10,
-              yPadding:10,
-              caretPadding:10
-          },
-          responsive: 1,
-          scales: {
-              yAxes: [{
-                  display:0,
-                  ticks: {
-                      display: false
-                  },
-                  gridLines: {
-                      zeroLineColor: "transparent",
-                      drawTicks: false,
-                      display: false,
-                      drawBorder: false
-                  }
-              }],
-              xAxes: [{
-                  display:0,
-                  ticks: {
-                      display: false
-                  },
-                  gridLines: {
-                      zeroLineColor: "transparent",
-                      drawTicks: false,
-                      display: false,
-                      drawBorder: false
-                  }
-              }]
-          },
-          layout:{
-              padding:{left:0,right:0,top:15,bottom:15}
-          }
-      };
+      data: canvas => {
+        return {
+          labels: [1, 2, 3, 4],
+          datasets: [
+            {
+              label: "Emails",
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157"],
+              borderWidth: 0,
+              data: [this.state.lo, 20, 30, 10]
+            }
+          ]
+        };
+      },
+      options: {
+        legend: {
+          display: true
+        },
     
+        pieceLabel: {
+          render: "percentage",
+          fontColor: ["white"],
+          precision: 2
+        },
+    
+        tooltips: {
+          enabled: true
+        },
+    
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                display: false
+              },
+              gridLines: {
+                drawBorder: false,
+                zeroLineColor: "transparent",
+                color: "rgba(255,255,255,0.05)"
+              }
+            }
+          ],
+    
+          xAxes: [
+            {
+              barPercentage: 1.6,
+              gridLines: {
+                drawBorder: false,
+                color: "rgba(255,255,255,0.1)",
+                zeroLineColor: "transparent"
+              },
+              ticks: {
+                display: false
+              }
+            }
+          ]
+        }
+      }
+    };
+
     return (
       <div className="content">
         <Row>
@@ -194,7 +206,7 @@ class Dashboard extends React.Component  {
                           if (error) return `Error! ${error.message}`;
 
                           return (
-                            <div>{data.userCount.count}</div>
+                            data.userCount.count
                           );
                         }}
                       </Query>
@@ -235,7 +247,7 @@ class Dashboard extends React.Component  {
                           if (error) return `Error! ${error.message}`;
 
                           return (
-                            <div>{data.reportCount.count}</div>
+                            data.reportCount.count
                           );
                         }}
                       </Query>
@@ -274,10 +286,11 @@ class Dashboard extends React.Component  {
                         {({ loading, error, data }) => {
                           if (loading) return "Loading...";
                           if (error) return `Error! ${error.message}`;
+                       
 
                           return (
-                            <div>{data.prescriptionCount.count}</div>
-                          );
+                           data.prescriptionCount.count
+                           );
                         }}
                       </Query>
                       </CardTitle>
@@ -299,7 +312,7 @@ class Dashboard extends React.Component  {
             </Card>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col xs={12}>
             <Card>
               <CardHeader>
@@ -327,7 +340,7 @@ class Dashboard extends React.Component  {
               </CardFooter>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col xs={12} sm={12} md={4}>
             <Card>
@@ -391,12 +404,7 @@ class Dashboard extends React.Component  {
               </CardFooter>
             </Card>
           </Col>
-          <Col>
-          <Card>
-          <Line data={data} options={options} />
-          </Card>
-          </Col>
-        </Row>
+         </Row>
       </div>
     );
   }
