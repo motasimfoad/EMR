@@ -149,8 +149,8 @@ class Prescription_Create extends React.Component {
           </FormGroup>
           <div className="form-row">
             <FormGroup className="col-md-12">
-              <Label for="inputMed">Medicin</Label>
-              <Input type="text"  id="inputMed" placeholder="Suggested medicins for the patient" onChange={this.handleChange}/>
+              <Label for="inputMed">Medicine</Label>
+              <Input type="text"  id="inputMed" placeholder="Suggested medicines for the patient" onChange={this.handleChange}/>
             </FormGroup>
           
           </div>

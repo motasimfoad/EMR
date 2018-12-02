@@ -155,7 +155,7 @@ class Prescription_Update extends React.Component {
           </FormGroup>
           <div className="form-row">
             <FormGroup className="col-md-12">
-              <Label for="inputMed">Medicin</Label>
+              <Label for="inputMed">Medicine</Label>
               <Input type="text"  id="inputMed" placeholder={this.state.inputMed} onChange={this.handleChange}/>
             </FormGroup>
           
