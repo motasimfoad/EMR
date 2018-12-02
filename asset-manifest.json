@@ -1,18 +1,18 @@
 {
   "main.css": "/EMR/static/css/main.674b9073.chunk.css",
-  "main.js": "/EMR/static/js/main.d2e812f3.chunk.js",
-  "main.js.map": "/EMR/static/js/main.d2e812f3.chunk.js.map",
+  "main.js": "/EMR/static/js/main.a70378e4.chunk.js",
+  "main.js.map": "/EMR/static/js/main.a70378e4.chunk.js.map",
   "static/css/1.4c2d5394.chunk.css": "/EMR/static/css/1.4c2d5394.chunk.css",
   "static/js/1.d0d5a952.chunk.js": "/EMR/static/js/1.d0d5a952.chunk.js",
   "static/js/1.d0d5a952.chunk.js.map": "/EMR/static/js/1.d0d5a952.chunk.js.map",
   "runtime~main.js": "/EMR/static/js/runtime~main.d02e2d9c.js",
   "runtime~main.js.map": "/EMR/static/js/runtime~main.d02e2d9c.js.map",
   "static/media/logo.svg": "/EMR/static/media/logo.5d5d9eef.svg",
-  "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.6836b93b.woff",
+  "static/media/paper-dashboard.scss": "/EMR/static/media/nucleo-icons.5c78b4cf.woff2",
   "static/media/external.css": "/EMR/static/media/finalback.52c48bde.png",
   "static/css/main.674b9073.chunk.css.map": "/EMR/static/css/main.674b9073.chunk.css.map",
   "static/css/1.4c2d5394.chunk.css.map": "/EMR/static/css/1.4c2d5394.chunk.css.map",
   "index.html": "/EMR/index.html",
-  "precache-manifest.0c3f4dd5673c06788a4727f25d49cc13.js": "/EMR/precache-manifest.0c3f4dd5673c06788a4727f25d49cc13.js",
+  "precache-manifest.053a9f31d099dde897082d032c2fe4f1.js": "/EMR/precache-manifest.053a9f31d099dde897082d032c2fe4f1.js",
   "service-worker.js": "/EMR/service-worker.js"
 }
