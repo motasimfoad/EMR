@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
-    "revision": "50bbdce77bf3c5dbad0c",
+    "revision": "ba56bfb20bd9e3d2dd23",
     "url": "/EMR/static/css/main.7d410e99.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/EMR/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "50bbdce77bf3c5dbad0c",
-    "url": "/EMR/static/js/main.50bbdce7.chunk.js"
+    "revision": "ba56bfb20bd9e3d2dd23",
+    "url": "/EMR/static/js/main.ba56bfb2.chunk.js"
   },
   {
     "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/EMR/static/css/1.6ee7e716.chunk.css"
   },
   {
-    "revision": "f3107dd632a7ed4bb25fad6d4e0406ef",
+    "revision": "76ed67f7d51993abae1a2933eab070dc",
     "url": "/EMR/index.html"
   }
 ];

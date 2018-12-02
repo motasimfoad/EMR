@@ -1,7 +1,7 @@
 {
   "main.css": "/EMR/static/css/main.7d410e99.chunk.css",
-  "main.js": "/EMR/static/js/main.50bbdce7.chunk.js",
-  "main.js.map": "/EMR/static/js/main.50bbdce7.chunk.js.map",
+  "main.js": "/EMR/static/js/main.ba56bfb2.chunk.js",
+  "main.js.map": "/EMR/static/js/main.ba56bfb2.chunk.js.map",
   "static/css/1.6ee7e716.chunk.css": "/EMR/static/css/1.6ee7e716.chunk.css",
   "static/js/1.4b61dfed.chunk.js": "/EMR/static/js/1.4b61dfed.chunk.js",
   "static/js/1.4b61dfed.chunk.js.map": "/EMR/static/js/1.4b61dfed.chunk.js.map",
@@ -13,6 +13,6 @@
   "static/css/1.6ee7e716.chunk.css.map": "/EMR/static/css/1.6ee7e716.chunk.css.map",
   "static/css/main.7d410e99.chunk.css.map": "/EMR/static/css/main.7d410e99.chunk.css.map",
   "index.html": "/EMR/index.html",
-  "precache-manifest.4e39c76856c4f29e3ac4c1d64b95802b.js": "/EMR/precache-manifest.4e39c76856c4f29e3ac4c1d64b95802b.js",
+  "precache-manifest.b58db714a0435a9785997f7785daaf88.js": "/EMR/precache-manifest.b58db714a0435a9785997f7785daaf88.js",
   "service-worker.js": "/EMR/service-worker.js"
 }
