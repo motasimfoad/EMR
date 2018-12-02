@@ -93,7 +93,7 @@ class Update_User_Admin extends React.Component {
           Email : <b>{data.updateUser.email}</b>< br />
           Contact No : <b>{data.updateUser.phone}</b>< br />
           </CardText>
-          <Button href="/list_users">Back</Button>
+          
         </Card>
        </div> ;
       if (error) return <p>Error :(</p>;
@@ -103,8 +103,8 @@ class Update_User_Admin extends React.Component {
       <Col md={12}>
         <Card>
           <CardHeader>
-            <h5 className="title">Update Prescription</h5>
-            <Alert color="warning"><b>Input fields are already filled with existing prescription data</b> </Alert>
+            <h5 className="title">Update User Information</h5>
+            <Alert color="warning"><b>Input fields are already filled with existing user data</b> </Alert>
          </CardHeader>
           <CardBody>
           <form onSubmit={this.handleSubmit}>

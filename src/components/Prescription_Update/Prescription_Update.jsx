@@ -104,7 +104,7 @@ class Prescription_Update extends React.Component {
           Health Issues : <b>{data.updatePrescription.details}</b>< br />
           Paitent Contact No : <b>{data.updatePrescription.phn}</b>< br />
           </CardText>
-          <Button href="/prescription">Back</Button>
+          
         </Card>
        </div> ;
       if (error) return <p>Error :(</p>;
