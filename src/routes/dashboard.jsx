@@ -19,7 +19,7 @@ var dashRoutes = [
   },
   {
     path: "/prescription",
-    name: "List Presciption",
+    name: "List Prescription",
     icon: "nc-icon nc-paper",
     component: Prescription
   },
