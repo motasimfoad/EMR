@@ -94,7 +94,7 @@ componentDidMount() {
   })
   .then(result => { 
     this.setState({
-      fever: result.data.prescriptionCount.count
+      typhoid: result.data.prescriptionCount.count
     });
 })
   .catch(error => { console.log(error) });
@@ -115,7 +115,7 @@ componentDidMount() {
   })
   .then(result => { 
     this.setState({
-      typhoid: result.data.prescriptionCount.count
+      fever: result.data.prescriptionCount.count
     });
 })
   .catch(error => { console.log(error) });
