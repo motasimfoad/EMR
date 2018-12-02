@@ -71,9 +71,9 @@ class CP_Hospital extends React.Component {
     return (
 
    <div className="cphelperMain">
-        <h2>Add prescription for a Patient</h2>
+        <h2>Add report for a Patient</h2>
         <pre className="cpHospitalText">Enter the patients NID/Birth Cirtificate no/ Passport No/ Phone No. <br/>
-        Upload the image of your prescription.<br/>
+        Upload the image of your report.<br/>
         The submit button will automatically apper on your screen.
         </pre>
         <div style={{ maxWidth: 400 }} className='cphelperAfterMain'>
