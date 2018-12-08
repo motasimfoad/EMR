@@ -176,27 +176,27 @@ reg() {
   }
  
 `,
-{
-  email,
-  pass ,
-  nid,
-  phone,
-  utype,
-  name
-})
-.then(result => { 
-  alert("User registered successfully")
-  
+      {
+        email,
+        pass ,
+        nid,
+        phone,
+        utype,
+        name
+      })
+      .then(result => { 
+        alert("User registered successfully")
+        
 
-})
-.catch(error => { alert("Email Id is already registered") })
-}
+      })
+      .catch(error => { alert("Email Id is already registered") })
+      }
 
 
   render() {
     return (
       <div className="authMain">
-      <h2 className="mainAuthLogo"><span className="authPageTextLogo">CVIS</span><b> EMR</b> </h2>
+      <h2 className="mainAuthLogo"><span className="authPageTextLogo"><b>IMDRMS</b></span></h2>
       <div className ="authFormHelper">
       <div className="authForm">
 

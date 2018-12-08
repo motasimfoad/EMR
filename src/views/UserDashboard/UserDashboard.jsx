@@ -90,7 +90,7 @@ class UserDashboard extends React.Component {
           <Row className="ddcenterbuttongroup">
             <Col sm="4">
             <Card >
-              <CardImg top src="https://us.123rf.com/450wm/hilch/hilch1802/hilch180200503/94767811-date-and-time-calendar-and-add-event-thin-line-flat-color-icon-vector-illustration-pictogram-isolate.jpg?ver=6" alt="..."/>
+              <CardImg top className="btnImgCrd" src="https://us.123rf.com/450wm/hilch/hilch1802/hilch180200503/94767811-date-and-time-calendar-and-add-event-thin-line-flat-color-icon-vector-illustration-pictogram-isolate.jpg?ver=6" alt="..."/>
               <CardBody>
                   <CardTitle>Add Prescription / Report</CardTitle>
                   <pre>You will find this files under view report section</pre>

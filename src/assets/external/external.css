@@ -88,6 +88,11 @@ text-align: center;
     padding-left: 8.5%;
 }
 
+.searchCenter2{
+    text-align: center;
+    
+}
+
 .ddmain{
     padding-top: 2%;
     text-align: center;
@@ -155,5 +160,10 @@ text-align: center;
 }
 
 .crhosCenter{
-    ext-align: center;
+    text-align: center;
+}
+
+.btnImgCrd{
+    
+   
 }
